@@ -1,0 +1,161 @@
+Refais entièrement un site web multi-pages haut de gamme pour un restaurant nommé King Aqua Lounge.
+
+⚠️ Le site actuel doit être corrigé et amélioré, pas juste recréé basiquement.
+
+🎯 OBJECTIF PRINCIPAL
+
+Créer un site :
+
+Premium (niveau restaurant luxe / Wix)
+Multi-pages (PAS one-page)
+Très fluide et responsive (mobile en priorité)
+Optimisé pour donner faim et convertir (commande)
+🚨 PROBLÈME À CORRIGER (TRÈS IMPORTANT)
+
+Actuellement :
+
+Les images des plats ne correspondent PAS à leur description ❌
+
+👉 Corriger absolument :
+
+Pour CHAQUE plat :
+
+Utiliser une image réaliste et exacte
+Correspondance stricte :
+Spaghetti → image de spaghetti
+Poulet grillé → vrai poulet grillé
+Crevettes → vraies crevettes
+Images appétissantes (food photography)
+Haute qualité (HD)
+Cohérence visuelle globale
+
+⚠️ Interdit :
+
+Images génériques
+Images hors sujet
+Mélange incohérent
+📁 STRUCTURE MULTI-PAGES
+
+Créer :
+
+index.html (Accueil)
+menu.html (Menu)
+commande.html (Commande)
+galerie.html (Galerie)
+contact.html (Contact)
+🎨 DESIGN (UI PREMIUM)
+Style : lounge chic, moderne, luxe
+Couleurs :
+Noir profond (#0D0D0D)
+Doré (#C9A14A)
+Blanc cassé
+Typographie élégante
+Effet visuel :
+Ombres douces
+Animations fluides
+Hover moderne
+Overlay sombre sur images
+🏠 PAGE ACCUEIL
+Hero section immersive
+Image sombre + overlay
+Texte :
+KING AQUA LOUNGE
+“Plonge dans l’ambiance — cocktails, vibes et saveurs inoubliables”
+Présentation
+
+Texte attractif :
+
+“Un espace unique à Bacodjicoroni ACI où gastronomie et ambiance lounge se rencontrent.”
+
+Plats populaires
+4 à 6 plats
+Image réelle cohérente
+Nom + prix
+Badge 🔥
+🍽️ PAGE MENU (IMPORTANT)
+Organisation :
+
+Catégories :
+
+Entrées
+Entrées chaudes
+Plats
+Grillades
+Chaque plat = CARTE VISUELLE
+
+Doit contenir :
+
+Image correspondante (obligatoire)
+Nom
+Description courte et appétissante
+Prix
+Bouton “Ajouter au panier”
+Exemple :
+
+Spaghetti Carbonara
+
+“Des pâtes crémeuses aux saveurs riches, sublimées par une sauce onctueuse.”
+
+🛒 PAGE COMMANDE
+Panier dynamique (JS)
+Ajout / suppression
+Total automatique
+Formulaire client :
+Nom
+Téléphone
+Adresse
+Bouton final :
+
+👉 Commander via WhatsApp
+
+→ Générer message automatique avec commande
+
+🖼️ GALERIE
+Grille moderne
+Images du restaurant
+Prévoir remplacement facile (je fournirai un zip)
+📍 CONTACT
+Carte Google :
+https://maps.app.goo.gl/cuxThwC8cFqdGc8c6?g_st=ic
+Texte :
+“Situé à Bacodjicoroni ACI, au bord du fleuve”
+Infos :
+📞 77 77 74 77
+📧 diarralanlux@gmail.com
+📱 NAVIGATION
+Navbar fixe
+Menu burger mobile
+Navigation fluide
+💎 UX (EXPÉRIENCE UTILISATEUR)
+
+Ajouter obligatoirement :
+
+Bouton WhatsApp flottant
+Scroll smooth
+Feedback visuel (ajout panier)
+Boutons clairs et visibles
+✨ UI (DESIGN)
+Cards modernes
+Animations légères
+Effet zoom sur images
+Design aéré (pas chargé)
+⚙️ TECHNIQUE
+HTML / CSS / JS
+Responsive complet
+Code structuré :
+/css
+/js
+/images
+🎯 BONUS
+Loader au démarrage
+Avis clients
+SEO de base
+🔥 RÉSULTAT ATTENDU
+
+Un site :
+
+Professionnel
+Cohérent visuellement
+Qui donne faim
+Qui donne envie de commander
+💡 CONSEIL IMPORTANT
