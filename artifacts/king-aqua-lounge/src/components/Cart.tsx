@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trash2, Minus, Plus, ShoppingBag, CheckCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { SectionHero } from './SectionHero';
 
 export function Cart() {
   const { cart, updateQuantity, removeFromCart, totalPrice, clearCart } = useCart();
@@ -39,14 +40,13 @@ export function Cart() {
   };
 
   return (
-    <section id="commander" className="py-24 bg-background relative border-t border-border">
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-        
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-sans uppercase tracking-[0.3em] text-primary mb-4">Commander</h2>
-          <h3 className="text-4xl font-serif text-foreground">Votre Sélection</h3>
-          <div className="w-12 h-1 bg-primary mx-auto mt-6" />
-        </div>
+    <section id="commander" className="bg-background relative border-t border-border">
+      <SectionHero
+        eyebrow="Commander"
+        title="Votre Commande"
+        subtitle="Modifiez les quantités, vérifiez le total et finalisez votre commande en un geste."
+      />
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl pt-16 pb-24">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           

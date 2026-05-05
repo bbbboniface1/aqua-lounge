@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { SectionHero } from './SectionHero';
 
 const IMAGES = [
   '/images/gallery-1.png',
@@ -28,18 +29,17 @@ export function Gallery() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } }
   };
 
   return (
-    <section id="galerie" className="py-24 bg-card relative" ref={ref}>
-      <div className="container mx-auto px-4 md:px-8">
-        
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-sans uppercase tracking-[0.3em] text-primary mb-4">Galerie</h2>
-          <h3 className="text-4xl md:text-5xl font-serif text-foreground">L'Expérience en Images</h3>
-          <div className="w-12 h-1 bg-primary mx-auto mt-6" />
-        </div>
+    <section id="galerie" className="bg-card relative" ref={ref}>
+      <SectionHero
+        eyebrow="Galerie"
+        title="Notre Univers"
+        subtitle="Le cadre, la terrasse, le bar et les vues fleuve — une immersion dans l'atmosphère King Aqua Lounge."
+      />
+      <div className="container mx-auto px-4 md:px-8 pt-16 pb-24">
 
         <motion.div 
           variants={containerVariants}

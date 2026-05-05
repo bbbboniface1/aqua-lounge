@@ -1,13 +1,19 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { SectionHero } from './SectionHero';
 
 export function Location() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="localisation" className="py-0 relative" ref={ref}>
+    <section id="localisation" className="relative" ref={ref}>
+      <SectionHero
+        eyebrow="Nous Trouver"
+        title="Localisation"
+        subtitle="Situé à Bacodjicoroni ACI, au bord du fleuve Niger. Ouvert tous les jours de 18h à l'aube."
+      />
       <div className="grid grid-cols-1 lg:grid-cols-2">
         
         {/* Info Side */}

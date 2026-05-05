@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ShoppingBag, Plus } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { SectionHero } from './SectionHero';
 
 type Category = 'Entrées' | 'Entrées chaudes' | 'Volailles' | 'Pâtes' | 'Brochettes' | 'Grillades & Autres';
 
@@ -75,19 +76,13 @@ export function Menu() {
   };
 
   return (
-    <section id="menu" className="py-24 bg-card relative" ref={ref}>
-      <div className="container mx-auto px-4 md:px-8">
-        
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-sm font-sans uppercase tracking-[0.3em] text-primary mb-4">La Carte</h2>
-          <h3 className="text-4xl md:text-5xl font-serif text-foreground">Menu Gastronomique</h3>
-          <div className="w-16 h-1 bg-primary mx-auto mt-6" />
-        </motion.div>
+    <section id="menu" className="bg-card relative" ref={ref}>
+      <SectionHero
+        eyebrow="La Carte"
+        title="Notre Menu"
+        subtitle="Découvrez nos entrées, grillades, brochettes et plats dans une ambiance lounge raffinée."
+      />
+      <div className="container mx-auto px-4 md:px-8 pt-16 pb-24">
 
         {/* Category Tabs */}
         <div className="flex overflow-x-auto pb-4 mb-12 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0 md:justify-center gap-2 md:gap-4">

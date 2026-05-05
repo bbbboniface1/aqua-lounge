@@ -1,20 +1,26 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { SectionHero } from './SectionHero';
 
 export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="about" className="bg-background relative overflow-hidden">
+      <SectionHero
+        eyebrow="Notre Histoire"
+        title="À Propos"
+        subtitle="Un espace unique où gastronomie, musique et ambiance se rencontrent au bord du fleuve."
+      />
       {/* Decorative background element */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px]" />
         <div className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px]" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10" ref={ref}>
+      <div className="container mx-auto px-4 md:px-8 relative z-10 py-24 md:py-32" ref={ref}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           
           <motion.div
