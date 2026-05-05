@@ -1,4 +1,4 @@
-modules = ["nodejs-24"]
+modules = ["nodejs-24", "python-3.11"]
 
 [deployment]
 router = "application"
@@ -29,8 +29,8 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "PORT=8081 BASE_PATH=/ pnpm --filter @workspace/king-aqua-lounge run dev"
-waitForPort = 8081
+args = "npx serve . -p 8080"
+waitForPort = 8080
 
 [agent]
 stack = "PNPM_WORKSPACE"
@@ -39,6 +39,10 @@ expertMode = true
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 20000
+
+[[ports]]
+localPort = 3000
+externalPort = 3001
 
 [[ports]]
 localPort = 8080
