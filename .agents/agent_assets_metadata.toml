@@ -1,0 +1,86 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "C72oQqUUekZUOkBl7qDnw"
+uri = "file://artifacts/king-aqua-lounge/public/images/hero.png"
+type = "image"
+title = "Hero background luxury lounge"
+
+[[generated]]
+id = "eHidUhwXBjYZuGa7IEjhH"
+uri = "file://artifacts/king-aqua-lounge/public/images/about.png"
+type = "image"
+title = "Warm luxury restaurant interior"
+
+[[generated]]
+id = "_ae_EgTRUxV5xAztEIVNW"
+uri = "file://artifacts/king-aqua-lounge/public/images/gallery-1.png"
+type = "image"
+title = "Gallery ambiance 1"
+
+[[generated]]
+id = "SbLGMnQWIzfS0PGNmN8-6"
+uri = "file://artifacts/king-aqua-lounge/public/images/gallery-2.png"
+type = "image"
+title = "Gallery food 1"
+
+[[generated]]
+id = "n9DbP2PxHdZyqDzvBhh9o"
+uri = "file://artifacts/king-aqua-lounge/public/images/gallery-3.png"
+type = "image"
+title = "Gallery ambiance 2"
+
+[[generated]]
+id = "H1UxUqTUk0eJ_FKYswA6_"
+uri = "file://artifacts/king-aqua-lounge/public/images/gallery-4.png"
+type = "image"
+title = "Gallery food 2"
+
+[[generated]]
+id = "AF1b-zmkhHxqCvv9N0uLf"
+uri = "file://artifacts/king-aqua-lounge/public/images/gallery-5.png"
+type = "image"
+title = "Gallery ambiance 3"
+
+[[generated]]
+id = "7rnpuFjhkdwX1DwdcP8HN"
+uri = "file://artifacts/king-aqua-lounge/public/images/gallery-6.png"
+type = "image"
+title = "Gallery food 3"
+
+[[generated]]
+id = "AZhQRqmKkSbsr29_k2XyR"
+uri = "file://artifacts/king-aqua-lounge/public/images/menu-entrees.png"
+type = "image"
+title = "Menu Entrees"
+
+[[generated]]
+id = "m0QiXqi22Rz0Y55vW316P"
+uri = "file://artifacts/king-aqua-lounge/public/images/menu-entrees-chaudes.png"
+type = "image"
+title = "Menu Entrees Chaudes"
+
+[[generated]]
+id = "eIzyUE9v3Icu1jLIFiwZj"
+uri = "file://artifacts/king-aqua-lounge/public/images/menu-volailles.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "PgXIwMrTxwy31biZ98Iw4"
+uri = "file://artifacts/king-aqua-lounge/public/images/menu-pates.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "xA8xCEnhig1SrRzxxlM6Y"
+uri = "file://artifacts/king-aqua-lounge/public/images/menu-brochettes.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "CAhdBgSbkbnkX_A7laFGR"
+uri = "file://artifacts/king-aqua-lounge/public/images/menu-grillades.png"
+type = "image"
+title = "generated_image"

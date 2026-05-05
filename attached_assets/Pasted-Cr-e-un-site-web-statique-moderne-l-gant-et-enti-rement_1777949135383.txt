@@ -1,0 +1,121 @@
+Crée un site web statique moderne, élégant et entièrement responsive pour un restaurant haut de gamme nommé King Aqua Lounge.
+
+🎨 Direction artistique
+Style inspiré de Wix.com : design épuré, moderne, premium
+Palette de couleurs :
+Noir profond (#0D0D0D)
+Or / doré (#C9A14A)
+Blanc cassé (#F5F5F5)
+Typographie élégante (ex: Playfair Display pour les titres, Poppins pour le texte)
+Animations fluides (hover, fade-in, scroll reveal)
+Interface simple, pas surchargée, très lisible
+Design mobile-first (parfait sur téléphone)
+📄 Structure du site
+1. HERO SECTION (Page d’accueil)
+Image de fond immersive (restaurant / ambiance lounge)
+Texte principal :
+KING AQUA LOUNGE
+Sous-texte :
+Plonge dans l’ambiance — cocktails, vibes et saveurs inoubliables
+Boutons :
+Voir le menu
+Commander maintenant
+2. À PROPOS
+Texte stylé :
+"King Aqua Lounge est un espace unique où gastronomie, musique et ambiance se rencontrent pour offrir une expérience inoubliable."
+Design avec image + texte côte à côte
+Animation au scroll
+3. MENU (IMPORTANT 🔥)
+
+Créer une section menu bien structurée avec catégories :
+
+Entrées
+Salade César (Poulet, Crevettes) — 7 000 FCFA
+Salade Composée — 5 000 FCFA
+Salade Niçoise — 4 000 FCFA
+Salade Maraîchère — 4 000 FCFA
+Nems — 3 000 FCFA
+Entrées chaudes
+Soupe de Capitaine — 5 000 FCFA
+Soupe de Vermicelle — 3 000 FCFA
+Beignets (Crevettes) — 6 000 FCFA
+Soupe aux Fruits de Mer — 7 500 FCFA
+Plats
+
+Volailles
+
+Poulet grillé entier — 10 000 FCFA
+Poulet grillé demi — 6 000 FCFA
+
+Pâtes
+
+Spaghetti Bolognaise — 5 000 FCFA
+Spaghetti Carbonara — 7 000 FCFA
+Spaghetti aux crevettes — 7 000 FCFA
+
+Brochettes
+
+Bœuf — 6 000 FCFA
+Poulet — 7 000 FCFA
+Capitaine — 9 000 FCFA
+Gambas — 13 000 FCFA
+Rognon — 7 000 FCFA
+Kana — 6 000 FCFA
+Foie de bœuf — 6 000 FCFA
+
+Grillades / Autres
+
+Pavé de bœuf — 9 000 FCFA
+Pavé de capitaine — 10 000 FCFA
+Côte de bœuf — 12 000 FCFA
+Côte d’agneau — 12 000 FCFA
+Crevettes provençales — 12 000 FCFA
+Gambas provençales — 15 000 FCFA
+Émincé de bœuf (crème) — 8 000 FCFA
+Émincé blanc de poulet (crème) — 8 000 FCFA
+
+👉 Chaque plat doit avoir :
+
+Une image (placeholder dynamique)
+Nom
+Prix
+Bouton "Commander"
+4. COMMANDE EN LIGNE 🛒
+Panier interactif (ajout/suppression)
+Formulaire client :
+Nom
+Téléphone
+Adresse
+Bouton "Valider la commande"
+Simulation simple (pas besoin de backend réel)
+5. GALERIE
+Section avec images du restaurant
+Layout en grille moderne
+Images remplaçables facilement (je fournirai un zip plus tard)
+6. LOCALISATION 📍
+Carte Google intégrée :
+https://maps.app.goo.gl/cuxThwC8cFqdGc8c6?g_st=ic
+Ajouter une image du lieu
+Texte :
+"Situé à Bacodjicoroni ACI, au bord du fleuve"
+7. CONTACT
+Téléphone : 77 77 74 77
+Email : diarralanlux@gmail.com
+Boutons cliquables (appel / mail)
+8. FOOTER
+Logo King Aqua Lounge
+Réseaux sociaux (icônes)
+Copyright
+⚙️ TECHNIQUE
+HTML5 + CSS3 + JavaScript
+Utiliser Flexbox / Grid
+Responsive (mobile, tablette, desktop)
+Animations CSS + JS
+Code propre et bien structuré
+Sections modulaires
+🎯 BONUS (important)
+Navbar fixe avec scroll smooth
+Effet hover sur les plats
+Bouton WhatsApp flottant
+Loader au chargement
+Dark mode (optionnel)
