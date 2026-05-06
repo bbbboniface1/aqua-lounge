@@ -7,6 +7,7 @@ const vercelOut = path.join(root, ".vercel", "output");
 const staticOut = path.join(vercelOut, "static");
 
 const pages = ["index.html", "menu.html", "commande.html", "galerie.html", "contact.html"];
+const files = ["manifest.json", "sw.js", "favicon.svg"];
 const dirs = ["css", "js", path.join("images", "optimized")];
 
 function copyFile(relativePath) {
@@ -30,6 +31,7 @@ fs.rmSync(vercelOut, { recursive: true, force: true });
 fs.mkdirSync(staticOut, { recursive: true });
 
 for (const page of pages) copyFile(page);
+for (const file of files) copyFile(file);
 for (const dir of dirs) copyDir(dir);
 
 fs.writeFileSync(

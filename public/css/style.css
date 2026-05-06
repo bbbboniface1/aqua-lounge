@@ -276,12 +276,12 @@ button, input, textarea { font: inherit; }
   transform: translate3d(2.2%, 0, 0) scale(1.025);
   filter: blur(2px);
   transition: opacity 1.25s ease, transform 1.55s cubic-bezier(.2,.8,.2,1), filter 1.25s ease;
-  will-change: opacity, transform, filter;
 }
 .hero-frame.is-active {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
   filter: blur(0);
+  will-change: opacity, transform;
 }
 .hero-frame img {
   width: 100%;
