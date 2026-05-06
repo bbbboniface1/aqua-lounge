@@ -422,6 +422,29 @@
     });
   }
 
+  function renderReviews() {
+    const root = document.querySelector("[data-reviews-root]");
+    if (!root || !window.KING_AQUA_REVIEWS) return;
+    root.innerHTML = window.KING_AQUA_REVIEWS.map((r) => {
+      const stars = Array.from({ length: 5 }, (_, i) =>
+        `<span class="${i < r.rating ? "" : "empty"}">★</span>`
+      ).join("");
+      return `
+        <article class="review-card reveal">
+          <div class="review-stars">${stars}</div>
+          <p class="review-text">"${r.text}"</p>
+          <div class="review-author">
+            <div class="review-avatar">${r.initial}</div>
+            <div class="review-meta">
+              <strong>${r.author}</strong>
+              <span>${r.occasion}</span>
+            </div>
+          </div>
+        </article>`;
+    }).join("");
+    reveal();
+  }
+
   function hideLoader() {
     document.body.classList.remove("loading");
     document.querySelector(".loader")?.classList.add("is-hidden");
@@ -435,6 +458,7 @@
     bindEvents();
     renderMenu();
     renderPopular();
+    renderReviews();
     renderOrder();
     updateCartCount();
     reveal();
