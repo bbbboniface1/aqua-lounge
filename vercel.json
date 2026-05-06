@@ -1,18 +1,15 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "menu.html", "use": "@vercel/static" },
-    { "src": "commande.html", "use": "@vercel/static" },
-    { "src": "galerie.html", "use": "@vercel/static" },
-    { "src": "contact.html", "use": "@vercel/static" },
-    { "src": "css/**", "use": "@vercel/static" },
-    { "src": "js/**", "use": "@vercel/static" },
-    { "src": "images/optimized/**", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/$1" }
+  "installCommand": "echo \"Static site: skipping install\"",
+  "buildCommand": "echo \"Static site: no build\"",
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/menu", "destination": "/menu.html" },
+    { "source": "/commande", "destination": "/commande.html" },
+    { "source": "/galerie", "destination": "/galerie.html" },
+    { "source": "/contact", "destination": "/contact.html" }
   ],
   "headers": [
     {
