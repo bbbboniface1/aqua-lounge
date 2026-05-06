@@ -14,9 +14,21 @@
     return `<div class="placeholder"><span>${label}</span></div>`;
   }
 
+  function fallbackImage(item = {}) {
+    const text = `${item.category || ""} ${item.name || ""}`.toLowerCase();
+    if (text.includes("salade") || text.includes("entrée")) return "images/optimized/menu-entrees.webp";
+    if (text.includes("soupe") || text.includes("beignet") || text.includes("nems")) return "images/optimized/menu-entrees-chaudes.webp";
+    if (text.includes("spaghetti") || text.includes("pâte")) return "images/optimized/menu-pates.webp";
+    if (text.includes("poulet")) return "images/optimized/menu-volailles.webp";
+    if (text.includes("brochette") || text.includes("gambas") || text.includes("crevette")) return "images/optimized/menu-brochettes.webp";
+    return "images/optimized/menu-grillades.webp";
+  }
+
   function imageMarkup(item) {
-    return item.image
-      ? `<img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async">`
+    const source = item.image || fallbackImage(item);
+    const fallback = fallbackImage(item);
+    return source
+      ? `<img src="${source}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">`
       : placeholder(item.name);
   }
 
@@ -45,7 +57,7 @@
     const cart = getCart();
     const current = cart.find((entry) => entry.id === id);
     if (current) current.qty += 1;
-    else cart.push({ id: item.id, name: item.name, price: item.price, image: item.image, qty: 1 });
+    else cart.push({ id: item.id, name: item.name, price: item.price, image: item.image || fallbackImage(item), category: item.category, qty: 1 });
     saveCart(cart);
     if (trigger) {
       trigger.classList.remove("is-popping");
@@ -118,7 +130,7 @@
 
     lines.innerHTML = cart.length ? cart.map((entry) => `
       <div class="cart-line">
-        ${entry.image ? `<img src="${entry.image}" alt="${entry.name}" loading="lazy" decoding="async">` : `<div class="mini-placeholder"></div>`}
+        <img src="${entry.image || fallbackImage(entry)}" alt="${entry.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallbackImage(entry)}';">
         <div>
           <strong>${entry.name}</strong>
           <div class="muted">${formatPrice(entry.price)}</div>
