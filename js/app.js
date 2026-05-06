@@ -1,3 +1,4 @@
+// Fixed: JavaScript syntax errors and UTF-8 encoding issues
 (function () {
   const phone = "22377777477";
   const storageKey = "king-aqua-cart";
