@@ -1,4 +1,4 @@
-const CACHE = "king-aqua-v1";
+const CACHE = "king-aqua-v2";
 const ASSETS = [
   "/",
   "/index.html",
@@ -48,7 +48,7 @@ self.addEventListener("fetch", (e) => {
 
   e.respondWith(
     caches.match(e.request).then((cached) => {
-      const networkFetch = fetch(e.request).then((res) => {
+      const networkFetch = fetch(e.request, { redirect: "follow" }).then((res) => {
         if (res && res.status === 200) {
           const clone = res.clone();
           caches.open(CACHE).then((cache) => cache.put(e.request, clone));
