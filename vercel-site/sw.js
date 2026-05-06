@@ -1,4 +1,4 @@
-const CACHE = "king-aqua-v3";
+const CACHE = "king-aqua-v5";
 const ASSETS = [
   "/",
   "/index.html",
@@ -8,7 +8,6 @@ const ASSETS = [
   "/contact.html",
   "/css/style.css",
   "/js/app.js",
-  "/js/menu-data.js",
   "/images/optimized/logo.webp",
   "/images/optimized/bar-americain.webp",
   "/images/optimized/bellevue-fleuve.webp",
@@ -18,12 +17,6 @@ const ASSETS = [
   "/images/optimized/restau-fleuve.webp",
   "/images/optimized/fond-accueil.webp",
   "/images/optimized/terrasse-lounge.webp",
-  "/images/optimized/menu-brochettes.webp",
-  "/images/optimized/menu-entrees.webp",
-  "/images/optimized/menu-grillades.webp",
-  "/images/optimized/menu-pates.webp",
-  "/images/optimized/menu-volailles.webp",
-  "/images/optimized/menu-entrees-chaudes.webp",
   "/favicon.svg",
 ];
 
