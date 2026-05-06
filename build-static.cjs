@@ -19,7 +19,10 @@ function copyFile(relativePath) {
 function copyDir(relativeDir) {
   const source = path.join(root, relativeDir);
   const target = path.join(staticOut, relativeDir);
-  fs.cpSync(source, target, { recursive: true });
+  fs.cpSync(source, target, {
+    recursive: true,
+    filter: (sourcePath) => !sourcePath.includes(path.join("images", "optimized", "dishes"))
+  });
 }
 
 fs.rmSync(publicOut, { recursive: true, force: true });

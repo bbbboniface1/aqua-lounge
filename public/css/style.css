@@ -1359,11 +1359,11 @@ h1 {
   .nav-links a::after { height: 2px; background: var(--gold-2); }
   .home-page .nav {
     position: relative;
-    min-height: 288px;
-    padding: 30px 22px 28px;
+    min-height: 214px;
+    padding: 22px 24px 22px;
     background:
-      radial-gradient(circle at 16% 18%, rgba(240,207,120,.12), transparent 34%),
-      linear-gradient(135deg, #3b3038, #2e2831);
+      radial-gradient(circle at 18% 16%, rgba(241,194,100,.16), transparent 32%),
+      linear-gradient(135deg, #463238, #2f2932 62%, #2a242c);
     backdrop-filter: none;
     box-shadow: none;
   }
@@ -1371,25 +1371,27 @@ h1 {
     transform: none;
   }
   .home-page .nav-topline {
-    min-height: 210px;
-    align-items: flex-start;
+    min-height: 148px;
+    align-items: center;
   }
   .home-page .brand,
   .home-page .nav.is-scrolled .brand {
-    width: 132px;
-    height: 132px;
-    margin-top: 8px;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
+    width: 124px;
+    height: 124px;
+    margin-top: 0;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 16px 38px rgba(0,0,0,.22);
+    padding: 8px;
   }
   .home-page .brand img {
-    object-fit: contain;
+    border-radius: 50%;
+    object-fit: cover;
   }
   .home-page .burger {
-    width: 56px;
-    height: 56px;
-    margin-top: 76px;
+    width: 54px;
+    height: 54px;
+    margin-top: 0;
     border: 0;
     color: #f0bd65;
   }
@@ -1408,8 +1410,8 @@ h1 {
     align-items: end;
   }
   .home-page .hero {
-    min-height: 560px;
-    padding: 0 20px 58px;
+    min-height: 620px;
+    padding: 0 20px 42px;
     align-items: end;
     border-bottom: 22px solid #fff;
   }
@@ -1451,28 +1453,31 @@ h1 {
   }
   .home-page .hero-control:hover { transform: translateY(-50%) scale(1.03); }
   .home-page .mobile-hero-tags {
-    position: absolute;
-    left: 52px;
-    right: 52px;
-    bottom: 292px;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
     z-index: 3;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    gap: 8px;
     text-align: center;
+    order: 2;
+    margin-top: 14px;
   }
   .mobile-hero-tags a {
     display: grid;
     place-items: center;
-    min-height: 58px;
+    min-height: 42px;
     color: #fff;
-    border: 1px solid rgba(255,255,255,.4);
-    background: rgba(58,48,55,.3);
-    backdrop-filter: blur(5px);
-    font-size: .66rem;
+    border: 1px solid rgba(255,255,255,.28);
+    background: rgba(58,48,55,.42);
+    backdrop-filter: blur(8px);
+    font-size: .58rem;
     font-weight: 800;
-    letter-spacing: .14em;
+    letter-spacing: .1em;
     text-transform: uppercase;
+    padding: 6px 4px;
   }
   .hero-content {
     max-width: 100%;
@@ -1489,6 +1494,8 @@ h1 {
     border-radius: 0;
     backdrop-filter: none;
     text-align: left;
+    display: flex;
+    flex-direction: column;
   }
   .hero .eyebrow {
     font-size: .66rem;
@@ -1497,6 +1504,9 @@ h1 {
   }
   .home-page .hero .eyebrow {
     color: rgba(255,255,255,.9);
+  }
+  .home-page h1 {
+    font-size: clamp(2.55rem, 13vw, 4.05rem);
   }
   h1 {
     font-size: clamp(2.45rem, 12vw, 3.65rem);
@@ -1629,34 +1639,34 @@ h1 {
     height: 40px;
   }
   .home-page .nav {
-    min-height: 258px;
-    padding-top: 24px;
+    min-height: 196px;
+    padding: 20px 20px;
   }
   .home-page .nav-topline {
-    min-height: 188px;
+    min-height: 136px;
   }
   .home-page .brand,
   .home-page .nav.is-scrolled .brand {
-    width: 116px;
-    height: 116px;
+    width: 112px;
+    height: 112px;
   }
   .home-page .burger {
-    margin-top: 62px;
+    width: 50px;
+    height: 50px;
+    margin-top: 0;
   }
   .home-page .hero {
-    min-height: 538px;
-    padding-bottom: 50px;
+    min-height: 594px;
+    padding-bottom: 38px;
   }
   .home-page .mobile-hero-tags {
-    left: 44px;
-    right: 44px;
-    bottom: 270px;
     gap: 8px;
+    margin-top: 12px;
   }
   .mobile-hero-tags a {
-    min-height: 50px;
-    font-size: .57rem;
-    letter-spacing: .1em;
+    min-height: 38px;
+    font-size: .52rem;
+    letter-spacing: .08em;
   }
   .nav-links {
     width: min(88vw, 340px);
