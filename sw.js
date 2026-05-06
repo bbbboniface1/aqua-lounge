@@ -1,4 +1,4 @@
-const CACHE = "king-aqua-v2";
+const CACHE = "king-aqua-v3";
 const ASSETS = [
   "/",
   "/index.html",
@@ -46,17 +46,36 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   if (url.origin !== location.origin) return;
 
+  const isNavigation =
+    e.request.mode === "navigate" ||
+    url.pathname.endsWith(".html") ||
+    url.pathname === "/";
+
+  if (isNavigation) {
+    e.respondWith(
+      fetch(e.request)
+        .then((res) => {
+          if (res && res.status === 200) {
+            const clone = res.clone();
+            caches.open(CACHE).then((cache) => cache.put(e.request, clone));
+          }
+          return res;
+        })
+        .catch(() => caches.match(e.request))
+    );
+    return;
+  }
+
   e.respondWith(
     caches.match(e.request).then((cached) => {
-      const networkFetch = fetch(e.request, { redirect: "follow" }).then((res) => {
+      if (cached) return cached;
+      return fetch(e.request).then((res) => {
         if (res && res.status === 200) {
           const clone = res.clone();
           caches.open(CACHE).then((cache) => cache.put(e.request, clone));
         }
         return res;
-      }).catch(() => null);
-
-      return cached || networkFetch;
+      });
     })
   );
 });
