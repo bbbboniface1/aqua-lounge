@@ -10,14 +10,14 @@
     updateCartCount();
   };
 
-  function placeholder(label = "Visuel à ajouter") {
+  function placeholder(label = "Plat signature") {
     return `<div class="placeholder"><span>${label}</span></div>`;
   }
 
   function imageMarkup(item) {
     return item.image
-      ? `<img src="${item.image}" alt="${item.name}" loading="lazy">`
-      : placeholder("Visuel à ajouter");
+      ? `<img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async">`
+      : placeholder(item.name);
   }
 
   function cardMarkup(item, popular = item.popular) {
@@ -28,12 +28,13 @@
           ${popular ? `<span class="badge">🔥 Populaire</span>` : ""}
         </div>
         <div class="card-body">
+          <p class="card-kicker">${item.category || "King Aqua"}</p>
           <div class="card-title">
             <h3>${item.name}</h3>
             <span class="price">${formatPrice(item.price)}</span>
           </div>
           <p class="item-desc">${item.desc}</p>
-          <button class="btn primary add-to-cart" data-id="${item.id}" type="button">Ajouter au panier</button>
+          <button class="btn primary add-to-cart" data-id="${item.id}" type="button">Commander</button>
         </div>
       </article>`;
   }
@@ -92,7 +93,7 @@
     root.innerHTML = window.KING_AQUA_MENU.map((group) => `
       <section class="menu-category" id="${slug(group.category)}">
         <h2>${group.category}</h2>
-        <div class="menu-grid">${group.items.map((item) => cardMarkup(item)).join("")}</div>
+        <div class="menu-grid">${group.items.map((item) => cardMarkup({ ...item, category: group.category })).join("")}</div>
       </section>
     `).join("");
 
@@ -117,7 +118,7 @@
 
     lines.innerHTML = cart.length ? cart.map((entry) => `
       <div class="cart-line">
-        ${entry.image ? `<img src="${entry.image}" alt="${entry.name}">` : `<div class="mini-placeholder"></div>`}
+        ${entry.image ? `<img src="${entry.image}" alt="${entry.name}" loading="lazy" decoding="async">` : `<div class="mini-placeholder"></div>`}
         <div>
           <strong>${entry.name}</strong>
           <div class="muted">${formatPrice(entry.price)}</div>
@@ -374,18 +375,54 @@
     window.addEventListener("resize", requestUpdate);
   }
 
-  window.addEventListener("load", () => {
+  function initTypewriter() {
+    const nodes = Array.from(document.querySelectorAll(".home-page [data-typewrite]"));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!nodes.length || reducedMotion) return;
+
+    let startDelay = 140;
+    nodes.forEach((node) => {
+      const text = node.dataset.typewrite || node.textContent || "";
+      node.textContent = "";
+      node.classList.add("is-typewriting");
+
+      window.setTimeout(() => {
+        let index = 0;
+        const speed = node.tagName === "H1" ? 24 : 14;
+        const write = () => {
+          node.textContent = text.slice(0, index);
+          index += 1;
+          if (index <= text.length) {
+            window.setTimeout(write, speed);
+          } else {
+            node.classList.remove("is-typewriting");
+            node.classList.add("is-written");
+          }
+        };
+        write();
+      }, startDelay);
+
+      startDelay += Math.min(620, text.length * 14 + 120);
+    });
+  }
+
+  function hideLoader() {
     document.body.classList.remove("loading");
     document.querySelector(".loader")?.classList.add("is-hidden");
-  });
+  }
+
+  window.addEventListener("load", hideLoader);
+  window.setTimeout(hideLoader, 900);
 
   document.addEventListener("DOMContentLoaded", () => {
+    hideLoader();
     bindEvents();
     renderMenu();
     renderPopular();
     renderOrder();
     updateCartCount();
     reveal();
+    initTypewriter();
     initHeroSlider();
     initNavbarScroll();
     initParallax();
