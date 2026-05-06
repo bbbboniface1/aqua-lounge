@@ -28,7 +28,7 @@
     const source = item.image || fallbackImage(item);
     const fallback = fallbackImage(item);
     return source
-       `<img src="${source}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">`
+      ? `<img src="${source}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">`
       : placeholder(item.name);
   }
 
@@ -37,7 +37,7 @@
       <article class="card reveal card-${item.id}">
         <div class="card-media">
           ${imageMarkup(item)}
-          ${popular  `<span class="badge">Populaire</span>` : ""}
+          ${popular ? `<span class="badge">Populaire</span>` : ""}
           <span class="card-media-price">${formatPrice(item.price)}</span>
         </div>
         <div class="card-body">
