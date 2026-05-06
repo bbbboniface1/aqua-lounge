@@ -28,25 +28,28 @@
     const source = item.image || fallbackImage(item);
     const fallback = fallbackImage(item);
     return source
-      ? `<img src="${source}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">`
+       `<img src="${source}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">`
       : placeholder(item.name);
   }
 
   function cardMarkup(item, popular = item.popular) {
     return `
-      <article class="card reveal">
+      <article class="card reveal card-${item.id}">
         <div class="card-media">
           ${imageMarkup(item)}
-          ${popular ? `<span class="badge">🔥 Populaire</span>` : ""}
+          ${popular  `<span class="badge">Populaire</span>` : ""}
+          <span class="card-media-price">${formatPrice(item.price)}</span>
         </div>
         <div class="card-body">
           <p class="card-kicker">${item.category || "King Aqua"}</p>
           <div class="card-title">
             <h3>${item.name}</h3>
-            <span class="price">${formatPrice(item.price)}</span>
           </div>
           <p class="item-desc">${item.desc}</p>
-          <button class="btn primary add-to-cart" data-id="${item.id}" type="button">Commander</button>
+          <div class="card-actions">
+            <button class="btn primary add-to-cart" data-id="${item.id}" type="button">Commander</button>
+            <a class="btn ghost" href="commande.html">Panier</a>
+          </div>
         </div>
       </article>`;
   }
@@ -68,7 +71,7 @@
   }
 
   function updateQty(id, delta) {
-    const cart = getCart().map((entry) => entry.id === id ? { ...entry, qty: entry.qty + delta } : entry).filter((entry) => entry.qty > 0);
+    const cart = getCart().map((entry) => entry.id === id  { ...entry, qty: entry.qty + delta } : entry).filter((entry) => entry.qty > 0);
     saveCart(cart);
     renderOrder();
   }
@@ -111,7 +114,7 @@
 
     const tabs = document.querySelector("[data-tabs]");
     if (tabs) {
-      tabs.innerHTML = window.KING_AQUA_MENU.map((group, index) => `<a class="tab ${index === 0 ? "active" : ""}" href="#${slug(group.category)}">${group.category}</a>`).join("");
+      tabs.innerHTML = window.KING_AQUA_MENU.map((group, index) => `<a class="tab ${index === 0  "active" : ""}" href="#${slug(group.category)}">${group.category}</a>`).join("");
     }
   }
 
@@ -128,7 +131,7 @@
     const cart = getCart();
     const total = cart.reduce((sum, entry) => sum + entry.price * entry.qty, 0);
 
-    lines.innerHTML = cart.length ? cart.map((entry) => `
+    lines.innerHTML = cart.length  cart.map((entry) => `
       <div class="cart-line">
         <img src="${entry.image || fallbackImage(entry)}" alt="${entry.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallbackImage(entry)}';">
         <div>
@@ -400,7 +403,7 @@
 
       window.setTimeout(() => {
         let index = 0;
-        const speed = node.tagName === "H1" ? 24 : 14;
+        const speed = node.tagName === "H1"  24 : 14;
         const write = () => {
           node.textContent = text.slice(0, index);
           index += 1;

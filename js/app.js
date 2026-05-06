@@ -34,19 +34,22 @@
 
   function cardMarkup(item, popular = item.popular) {
     return `
-      <article class="card reveal">
+      <article class="card reveal card-${item.id}">
         <div class="card-media">
           ${imageMarkup(item)}
-          ${popular ? `<span class="badge">🔥 Populaire</span>` : ""}
+          ${popular ? `<span class="badge">Populaire</span>` : ""}
+          <span class="card-media-price">${formatPrice(item.price)}</span>
         </div>
         <div class="card-body">
           <p class="card-kicker">${item.category || "King Aqua"}</p>
           <div class="card-title">
             <h3>${item.name}</h3>
-            <span class="price">${formatPrice(item.price)}</span>
           </div>
           <p class="item-desc">${item.desc}</p>
-          <button class="btn primary add-to-cart" data-id="${item.id}" type="button">Commander</button>
+          <div class="card-actions">
+            <button class="btn primary add-to-cart" data-id="${item.id}" type="button">Commander</button>
+            <a class="btn ghost" href="commande.html">Panier</a>
+          </div>
         </div>
       </article>`;
   }
