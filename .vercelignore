@@ -4,6 +4,7 @@ lib/
 scripts/
 node_modules/
 dist/
+public/
 replit.md
 .replit
 .agents/
