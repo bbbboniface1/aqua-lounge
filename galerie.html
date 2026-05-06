@@ -2,12 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta name="theme-color" content="#201a17">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Galerie | King Aqua Lounge</title>
   <meta name="description" content="Ambiance, cocktails, plats et soirées au King Aqua Lounge à Bacodjicoroni ACI.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css?v=20260506-8">
 </head>
@@ -97,5 +99,6 @@
   <a class="whatsapp-float" href="https://wa.me/22377777477" aria-label="Contacter King Aqua Lounge sur WhatsApp">WA</a>
   <script src="js/menu-data.js?v=20260506-8"></script>
   <script src="js/app.js?v=20260506-8"></script>
+  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'))}</script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+{
+  "name": "King Aqua Lounge",
+  "short_name": "King Aqua",
+  "description": "Restaurant lounge premium au bord du fleuve à Bamako",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#201a17",
+  "theme_color": "#201a17",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "restaurants"],
+  "shortcuts": [
+    {
+      "name": "Commander",
+      "url": "/commande.html",
+      "description": "Passer une commande WhatsApp"
+    },
+    {
+      "name": "Menu",
+      "url": "/menu.html",
+      "description": "Voir la carte"
+    }
+  ]
+}

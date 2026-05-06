@@ -2,13 +2,20 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta name="theme-color" content="#201a17">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>King Aqua Lounge | Restaurant lounge premium ?à Bacodjicoroni ACI</title>
+  <title>King Aqua Lounge | Restaurant lounge premium à Bacodjicoroni ACI</title>
   <meta name="description" content="King Aqua Lounge à Bacodjicoroni ACI: cocktails, plats grillés, fruits de mer et ambiance lounge au bord du fleuve. Commande rapide via WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="images/optimized/bar-americain.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="King Aqua Lounge | Restaurant premium à Bamako">
+  <meta property="og:description" content="Grillades savoureuses, cocktails frais et ambiance lounge au bord du fleuve à Bacodjicoroni ACI, Bamako.">
+  <meta property="og:image" content="images/optimized/bar-americain.webp">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css?v=20260506-8">
 </head>
@@ -38,16 +45,16 @@
 
   <header class="hero hero-slider" data-hero-slider>
     <div class="hero-frame is-active">
-      <img src="images/optimized/bar-americain.webp" alt="Bar américain lumineux King Aqua Lounge" width="1280" height="960" fetchpriority="high" decoding="async">
+      <img src="images/optimized/bar-americain.webp" alt="Bar américain lumineux King Aqua Lounge" width="1280" height="960" sizes="100vw" fetchpriority="high" decoding="async">
     </div>
     <div class="hero-frame">
-      <img src="images/optimized/bellevue-fleuve.webp" alt="Vue splendide sur le fleuve depuis King Aqua Lounge" width="1280" height="960" loading="lazy" decoding="async">
+      <img src="images/optimized/bellevue-fleuve.webp" alt="Vue splendide sur le fleuve depuis King Aqua Lounge" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
     </div>
     <div class="hero-frame">
-      <img src="images/optimized/interieur-lounge.webp" alt="Intérieur lounge King Aqua Lounge" width="1280" height="960" loading="lazy" decoding="async">
+      <img src="images/optimized/interieur-lounge.webp" alt="Intérieur lounge King Aqua Lounge" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
     </div>
     <div class="hero-frame">
-      <img src="images/optimized/photo-exterieur.webp" alt="King Aqua Lounge posé au bord du fleuve" width="1280" height="960" loading="lazy" decoding="async">
+      <img src="images/optimized/photo-exterieur.webp" alt="King Aqua Lounge posé au bord du fleuve" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
     </div>
     <button class="hero-control hero-control-prev" type="button" data-slider-prev aria-label="Image précédente">&lsaquo;</button>
     <button class="hero-control hero-control-next" type="button" data-slider-next aria-label="Image suivante">&rsaquo;</button>
@@ -240,5 +247,6 @@
   <a class="whatsapp-float" href="https://wa.me/22377777477" aria-label="Contacter King Aqua Lounge sur WhatsApp">WA</a>
   <script src="js/menu-data.js?v=20260506-8"></script>
   <script src="js/app.js?v=20260506-8"></script>
+  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'))}</script>
 </body>
 </html>
