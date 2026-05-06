@@ -1,6 +1,5 @@
 {
-  "installCommand": "echo \"Static site: skipping install\"",
-  "buildCommand": "node build-static.cjs",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,

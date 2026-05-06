@@ -14,7 +14,6 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 tsconfig.json
 tsconfig.base.json
-package.json
 dist/
 replit.md
 .replit
