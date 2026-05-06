@@ -77,17 +77,16 @@ button, input, textarea { font: inherit; }
   padding: 16px clamp(18px, 5vw, 72px) 14px;
   background: linear-gradient(180deg, rgba(20,13,10,.5), rgba(20,13,10,.22) 68%, rgba(20,13,10,0));
   border-bottom: 0;
-  backdrop-filter: none;
-  transform: translateY(0);
-  transition: background .28s ease, min-height .28s ease, padding .28s ease, transform .34s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease, backdrop-filter .28s ease;
+  transform: translateY(0) translateZ(0);
+  will-change: transform;
+  transition: background .28s ease, min-height .28s ease, padding .28s ease, transform .34s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease;
 }
 .nav.is-scrolled {
   min-height: 118px;
   padding-top: 10px;
   padding-bottom: 12px;
-  background: rgba(9, 9, 9, .72);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 18px 45px rgba(0,0,0,.24);
+  background: rgba(9, 8, 7, .94);
+  box-shadow: 0 18px 45px rgba(0,0,0,.32);
 }
 .nav.is-hidden:not(.open) {
   transform: translateY(calc(-100% + 14px));
@@ -302,9 +301,8 @@ button, input, textarea { font: inherit; }
   max-width: min(760px, 92vw);
   z-index: 2;
   padding: clamp(18px, 3vw, 30px) clamp(18px, 3vw, 34px);
-  background: linear-gradient(90deg, rgba(18,12,9,.5), rgba(18,12,9,.16));
+  background: linear-gradient(90deg, rgba(18,12,9,.58), rgba(18,12,9,.18));
   border-left: 3px solid rgba(240,207,120,.82);
-  backdrop-filter: blur(2px);
 }
 .hero-control {
   position: absolute;
@@ -315,9 +313,8 @@ button, input, textarea { font: inherit; }
   display: grid;
   place-items: center;
   border: 1px solid rgba(247,240,228,.28);
-  background: rgba(255,248,238,.12);
+  background: rgba(30,20,14,.72);
   color: var(--cream);
-  backdrop-filter: blur(14px);
   font-family: Georgia, serif;
   font-size: 2.4rem;
   line-height: 1;
@@ -844,9 +841,8 @@ h1 {
 .inner-page .nav.is-scrolled {
   min-height: 118px;
   padding-top: 10px;
-  background: rgba(9, 9, 9, .82);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 18px 45px rgba(0,0,0,.24);
+  background: rgba(9, 8, 7, .95);
+  box-shadow: 0 18px 45px rgba(0,0,0,.32);
 }
 .inner-page .nav.is-scrolled .brand {
   width: 76px;
@@ -1293,8 +1289,7 @@ h1 {
   .nav {
     min-height: 70px;
     padding: 7px 16px;
-    background: rgba(18,12,9,.86);
-    backdrop-filter: blur(16px);
+    background: rgba(14,9,6,.95);
   }
   .nav.is-scrolled {
     min-height: 66px;
@@ -1312,8 +1307,7 @@ h1 {
     position: fixed;
     inset: 0;
     z-index: 998;
-    background: rgba(0,0,0,.58);
-    backdrop-filter: blur(2px);
+    background: rgba(0,0,0,.72);
   }
   .nav::after { display: none; }
   .nav-topline {
@@ -1514,8 +1508,7 @@ h1 {
     min-height: 42px;
     color: #fff;
     border: 1px solid rgba(255,255,255,.28);
-    background: rgba(58,48,55,.42);
-    backdrop-filter: blur(8px);
+    background: rgba(28,20,18,.72);
     font-size: .58rem;
     font-weight: 800;
     letter-spacing: .1em;
@@ -1937,8 +1930,7 @@ body {
 }
 
 .tabs {
-  background: rgba(255,248,237,.86);
-  backdrop-filter: blur(18px);
+  background: rgba(255,248,237,.97);
   border-color: rgba(90,58,28,.12);
 }
 
@@ -2126,11 +2118,11 @@ body {
     grid-template-columns: .78fr .9fr 1.1fr;
     gap: 8px;
     padding: 7px;
-    background: rgba(38,29,24,.88);
+    background: rgba(22,15,10,.97);
     border: 1px solid rgba(255,248,237,.18);
     border-radius: 999px;
-    backdrop-filter: blur(18px);
-    box-shadow: 0 18px 48px rgba(0,0,0,.34);
+    box-shadow: 0 18px 48px rgba(0,0,0,.44);
+    transform: translateZ(0);
   }
 
   .mobile-order-bar a {

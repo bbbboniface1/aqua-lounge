@@ -365,17 +365,32 @@
 
   function initParallax() {
     const blocks = Array.from(document.querySelectorAll("[data-parallax]"));
-    const canAnimate = blocks.length && window.matchMedia("(min-width: 761px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const canAnimate = blocks.length &&
+      window.matchMedia("(min-width: 961px)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      !("ontouchstart" in window);
     if (!canAnimate) return;
 
+    let viewport = window.innerHeight || 1;
+    let scrollY = window.scrollY;
     let ticking = false;
+
+    const cache = blocks.map((block) => {
+      const rect = block.getBoundingClientRect();
+      return {
+        el: block,
+        top: rect.top + scrollY,
+        height: rect.height,
+      };
+    });
+
     const update = () => {
-      const viewport = window.innerHeight || 1;
-      blocks.forEach((block) => {
-        const rect = block.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > viewport) return;
-        const progress = (rect.top + rect.height / 2 - viewport / 2) / viewport;
-        block.style.setProperty("--parallax-y", `${Math.max(-28, Math.min(28, progress * -34))}px`);
+      scrollY = window.scrollY;
+      cache.forEach(({ el, top, height }) => {
+        const relTop = top - scrollY;
+        if (relTop > viewport || relTop + height < 0) return;
+        const progress = (relTop + height / 2 - viewport / 2) / viewport;
+        el.style.setProperty("--parallax-y", `${Math.max(-24, Math.min(24, progress * -28))}px`);
       });
       ticking = false;
     };
@@ -386,9 +401,20 @@
       window.requestAnimationFrame(update);
     };
 
+    const onResize = () => {
+      viewport = window.innerHeight || 1;
+      scrollY = window.scrollY;
+      cache.forEach((item) => {
+        const rect = item.el.getBoundingClientRect();
+        item.top = rect.top + scrollY;
+        item.height = rect.height;
+      });
+      requestUpdate();
+    };
+
     update();
     window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("resize", onResize, { passive: true });
   }
 
   function initTypewriter() {
