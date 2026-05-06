@@ -3,17 +3,6 @@ attached_assets/
 lib/
 scripts/
 node_modules/
-
-images/*.jpeg
-images/*.jpg
-images/*.png
-!images/optimized/
-!images/optimized/**
-
-pnpm-lock.yaml
-pnpm-workspace.yaml
-tsconfig.json
-tsconfig.base.json
 dist/
 replit.md
 .replit

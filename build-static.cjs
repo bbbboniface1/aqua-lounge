@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const root = __dirname;
-const out = path.join(root, "dist");
+const out = path.join(root, "public");
 
 const pages = ["index.html", "menu.html", "commande.html", "galerie.html", "contact.html"];
 const dirs = ["css", "js", path.join("images", "optimized")];
