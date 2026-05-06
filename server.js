@@ -53,8 +53,16 @@ const server = http.createServer((req, res) => {
 
   fs.stat(filePath, (err, stat) => {
     if (err || !stat.isFile()) {
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("Not found");
+      const notFoundPath = path.join(ROOT, "404.html");
+      fs.readFile(notFoundPath, (err2, data) => {
+        if (err2) {
+          res.writeHead(404, { "Content-Type": "text/plain" });
+          res.end("Not found");
+          return;
+        }
+        res.writeHead(404, { "Content-Type": "text/html; charset=utf-8", ...SECURITY_HEADERS });
+        res.end(data);
+      });
       return;
     }
 

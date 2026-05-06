@@ -2158,6 +2158,52 @@ body {
   }
 }
 
+.info-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 32px;
+  background: rgba(214,169,76,.10);
+  border-top: 1px solid rgba(214,169,76,.18);
+  border-bottom: 1px solid rgba(214,169,76,.18);
+  padding: 12px clamp(18px, 5vw, 72px);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--gold-2);
+  text-align: center;
+}
+
+.error-404 {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(120px, 18vw, 200px) clamp(18px, 5vw, 72px) 80px;
+  text-align: center;
+}
+.error-404-inner {
+  max-width: 560px;
+}
+.error-404-inner h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  margin: 12px 0 20px;
+  color: var(--cream);
+}
+.error-404-inner p {
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.error-404-inner .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
 @media (max-width: 390px) {
   .home-page .nav {
     min-height: 138px;
