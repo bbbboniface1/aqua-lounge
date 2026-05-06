@@ -1,3 +1,4 @@
+// Fixed: JavaScript syntax errors and UTF-8 encoding issues
 (function () {
   const phone = "22377777477";
   const storageKey = "king-aqua-cart";
@@ -71,7 +72,7 @@
   }
 
   function updateQty(id, delta) {
-    const cart = getCart().map((entry) => entry.id === id  { ...entry, qty: entry.qty + delta } : entry).filter((entry) => entry.qty > 0);
+    const cart = getCart().map((entry) => entry.id === id ? { ...entry, qty: entry.qty + delta } : entry).filter((entry) => entry.qty > 0);
     saveCart(cart);
     renderOrder();
   }
@@ -114,7 +115,7 @@
 
     const tabs = document.querySelector("[data-tabs]");
     if (tabs) {
-      tabs.innerHTML = window.KING_AQUA_MENU.map((group, index) => `<a class="tab ${index === 0  "active" : ""}" href="#${slug(group.category)}">${group.category}</a>`).join("");
+      tabs.innerHTML = window.KING_AQUA_MENU.map((group, index) => `<a class="tab ${index === 0 ? "active" : ""}" href="#${slug(group.category)}">${group.category}</a>`).join("");
     }
   }
 
@@ -131,7 +132,7 @@
     const cart = getCart();
     const total = cart.reduce((sum, entry) => sum + entry.price * entry.qty, 0);
 
-    lines.innerHTML = cart.length  cart.map((entry) => `
+    lines.innerHTML = cart.length ? cart.map((entry) => `
       <div class="cart-line">
         <img src="${entry.image || fallbackImage(entry)}" alt="${entry.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallbackImage(entry)}';">
         <div>
@@ -403,7 +404,7 @@
 
       window.setTimeout(() => {
         let index = 0;
-        const speed = node.tagName === "H1"  24 : 14;
+        const speed = node.tagName === "H1" ? 24 : 14;
         const write = () => {
           node.textContent = text.slice(0, index);
           index += 1;
