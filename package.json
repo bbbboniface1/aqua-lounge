@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "node build-static.cjs"
+    "sync": "node sync-js.cjs",
+    "build": "node sync-js.cjs && node build-static.cjs"
   },
   "private": true,
   "devDependencies": {

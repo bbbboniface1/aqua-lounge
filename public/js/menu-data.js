@@ -14,14 +14,14 @@ window.KING_AQUA_MENU = [
     items: [
       { id: "soupe-capitaine", name: "Soupe de Capitaine", price: 5000, image: "images/optimized/real-dishes/soupe-capitaine.jpg", desc: "Bouillon chaud et parfumé autour du capitaine, généreux, réconfortant et bien relevé." },
       { id: "soupe-vermicelle", name: "Soupe de Vermicelle", price: 3000, image: "images/optimized/real-dishes/soupe-vermicelle.jpg", desc: "Soupe légère aux vermicelles, servie bien chaude pour lancer le repas en douceur." },
-      { id: "beignets-crevettes", name: "Beignets de Crevettes", price: 6000, image: "images/optimized/real-dishes/beignets-crevettes.jpg", desc: "Crevettes enrobées d’une pâte fine, croustillantes dehors et fondantes dedans." },
+      { id: "beignets-crevettes", name: "Beignets de Crevettes", price: 6000, image: "images/optimized/real-dishes/beignets-crevettes.jpg", desc: "Crevettes enrobées d'une pâte fine, croustillantes dehors et fondantes dedans." },
       { id: "soupe-fruits-mer", name: "Soupe aux Fruits de Mer", price: 7500, image: "images/optimized/real-dishes/soupe-fruits-mer.jpg", popular: true, desc: "Fruits de mer dans un bouillon riche, iodé et délicatement épicé, servi bien chaud." }
     ]
   },
   {
     category: "Plats",
     items: [
-      { id: "spaghetti-bolognaise", name: "Spaghetti Bolognaise", price: 5000, image: "images/optimized/real-dishes/spaghetti-bolognaise.jpg", desc: "Pâtes généreuses enrobées d’une sauce tomate mijotée, riche et savoureuse." },
+      { id: "spaghetti-bolognaise", name: "Spaghetti Bolognaise", price: 5000, image: "images/optimized/real-dishes/spaghetti-bolognaise.jpg", desc: "Pâtes généreuses enrobées d'une sauce tomate mijotée, riche et savoureuse." },
       { id: "spaghetti-carbonara", name: "Spaghetti Carbonara", price: 7000, image: "images/optimized/menu-pates.webp", desc: "Pâtes crémeuses, poivrées et fondantes, pour un plaisir intense à chaque bouchée." },
       { id: "spaghetti-crevettes", name: "Spaghetti aux Crevettes", price: 7000, image: "images/optimized/real-dishes/spaghetti-crevettes.jpg", popular: true, desc: "Spaghetti crémeux aux crevettes, herbes fraîches et sauce veloutée au parfum marin." },
       { id: "emince-boeuf", name: "Émincé de Boeuf à la Crème", price: 8000, image: "images/optimized/real-dishes/emince-boeuf.jpg", desc: "Boeuf finement émincé dans une sauce crème douce, riche et enveloppante." },
