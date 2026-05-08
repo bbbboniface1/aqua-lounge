@@ -1149,10 +1149,17 @@ h1 {
   gap: 24px;
 }
 .map {
+  display: block;
   min-height: 440px;
   width: 100%;
   border: 0;
   filter: grayscale(.28) contrast(1.08);
+}
+@media (max-width: 1080px) {
+  .map {
+    min-height: 300px;
+    height: 300px;
+  }
 }
 .footer {
   margin-top: clamp(22px, 4vw, 54px);
