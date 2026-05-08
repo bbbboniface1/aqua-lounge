@@ -127,9 +127,51 @@ button, input, textarea { font: inherit; }
 .nav-social {
   justify-content: flex-end;
 }
-.nav-social span {
+.nav-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   padding-right: 20px;
   border-right: 1px solid rgba(255,255,255,.18);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color .3s ease;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255,255,255,.35);
+  transition: background .4s ease, box-shadow .4s ease;
+}
+.nav-status[data-open="1"] .status-dot {
+  background: #4ade80;
+  animation: status-pulse 2.4s ease-in-out infinite;
+}
+.nav-status[data-open="0"] .status-dot {
+  background: #f87171;
+}
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,.7); }
+  55%       { box-shadow: 0 0 0 7px rgba(74,222,128,0); }
+}
+.nav-status-drawer {
+  display: none;
+  padding-top: 22px;
+  margin-top: 6px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.nav-status-drawer .nav-status {
+  padding-right: 0;
+  border-right: none;
+  font-size: .78rem;
+  color: rgba(255,255,255,.78);
+  letter-spacing: .05em;
+  gap: 9px;
 }
 .nav-social a {
   min-width: 30px;
@@ -1318,6 +1360,7 @@ h1 {
   .nav.is-scrolled .nav-topline { min-height: 56px; }
   .nav-contact,
   .nav-social { display: none; }
+  .nav-status-drawer { display: flex; }
   .brand {
     width: 56px;
     height: 56px;

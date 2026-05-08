@@ -448,6 +448,25 @@
     });
   }
 
+  function updateOpenStatus() {
+    try {
+      const h = parseInt(
+        new Intl.DateTimeFormat("fr-FR", {
+          timeZone: "Africa/Bamako",
+          hour: "numeric",
+          hour12: false,
+        }).format(new Date()),
+        10
+      );
+      const isOpen = h >= 16 || h < 3;
+      document.querySelectorAll(".nav-status").forEach((el) => {
+        el.setAttribute("data-open", isOpen ? "1" : "0");
+        const text = el.querySelector(".status-text");
+        if (text) text.textContent = isOpen ? "Ouvert maintenant" : "Ouvre à 16h";
+      });
+    } catch (e) { /* Intl non supporté — texte par défaut conservé */ }
+  }
+
   function renderReviews() {
     const root = document.querySelector("[data-reviews-root]");
     if (!root || !window.KING_AQUA_REVIEWS) return;
@@ -492,5 +511,7 @@
     initHeroSlider();
     initNavbarScroll();
     initParallax();
+    updateOpenStatus();
+    window.setInterval(updateOpenStatus, 60000);
   });
 })();
