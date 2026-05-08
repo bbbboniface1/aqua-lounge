@@ -1,4 +1,4 @@
-const CACHE = "king-aqua-v6";
+const CACHE = "king-aqua-v7";
 const ASSETS = [
   "/",
   "/index.html",
