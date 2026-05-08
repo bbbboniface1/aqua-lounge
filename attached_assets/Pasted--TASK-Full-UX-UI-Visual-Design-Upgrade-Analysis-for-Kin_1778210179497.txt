@@ -1,0 +1,223 @@
+# 🎯 TASK: Full UX/UI & Visual Design Upgrade Analysis for King Aqua Lounge
+
+Agis comme :
+
+- un directeur artistique senior
+- un designer UX/UI expert restaurant premium
+- un spécialiste conversion & merchandising visuel
+
+Tu dois analyser le site actuel "King Aqua Lounge" comme une agence haut de gamme.
+
+---
+
+# 🧠 OBJECTIF GLOBAL
+
+Le site doit devenir :
+
+- plus élégant
+- plus moderne
+- plus immersif
+- plus ergonomique
+- plus mémorable
+- plus premium
+- plus fluide
+
+⚠️ IMPORTANT :
+Ne pas refaire totalement le site.
+Tu dois AMÉLIORER intelligemment l’existant.
+
+---
+
+# 🔍 ÉTAPE 1 — AUDIT VISUEL COMPLET
+
+Analyse :
+
+- structure
+- hiérarchie visuelle
+- couleurs
+- espacement
+- lisibilité
+- responsive
+- UX mobile
+- équilibre des sections
+- cohérence graphique
+- merchandising des plats
+- qualité émotionnelle
+
+---
+
+# 📋 IDENTIFIER LES PROBLÈMES
+
+Trouver :
+
+- sections trop vides
+- sections trop chargées
+- images mal mises en valeur
+- problèmes de lisibilité
+- manque de respiration
+- manque de contraste
+- éléments peu visibles
+- navigation peu intuitive
+- incohérences visuelles
+- répétitions inutiles
+- effets trop faibles ou trop agressifs
+
+---
+
+# 🎨 ÉTAPE 2 — AMÉLIORATIONS DESIGN
+
+## 💡 OBJECTIF
+
+Donner un rendu :
+
+- luxe moderne
+- restaurant lounge premium
+- inspiré des meilleurs sites restaurant haut de gamme
+
+---
+
+# 🌗 COULEURS
+
+Le site est encore un peu trop sombre.
+
+## ACTIONS
+
+- éclaircir légèrement certaines sections
+- ajouter plus de profondeur
+- garder le style premium
+
+---
+
+# 🖼️ IMAGES & MERCHANDISING
+
+## OBJECTIF
+
+Les images doivent :
+
+- attirer immédiatement l’œil
+- donner faim
+- raconter une ambiance
+
+---
+
+## ACTIONS
+
+- améliorer cadrage
+- créer meilleurs placements
+- utiliser alternance image/texte
+- créer focus visuels forts
+- améliorer overlays
+- améliorer qualité perçue
+
+---
+
+# 🍽️ MENU
+
+Le menu doit ressembler à une application food premium.
+
+## AMÉLIORATIONS
+
+- cartes plus élégantes
+- meilleur contraste
+- prix plus visibles
+- badges premium :
+  - populaire
+  - chef special
+  - recommandé
+
+- meilleure hiérarchie visuelle
+- animations légères sur hover
+
+---
+
+# 📱 VERSION MOBILE (TRÈS IMPORTANT)
+
+Analyser toute l’expérience mobile :
+
+- taille boutons
+- espacement
+- navigation
+- lisibilité
+- fluidité
+
+---
+
+## OBJECTIF
+
+Le mobile doit être :
+- fluide
+- moderne
+- naturel
+- agréable au doigt
+
+---
+
+# ✨ MICRO-INTERACTIONS
+
+Ajouter subtilement :
+
+- hover élégants
+- transitions fluides
+- animations modernes
+- apparition douce des sections
+- parallaxe légère si utile
+
+⚠️ IMPORTANT :
+Animations premium, pas gadgets.
+
+---
+
+# 🧠 STORYTELLING & CONTENU
+
+Le site manque encore d’impact émotionnel.
+
+## AJOUTER
+
+- textes plus immersifs
+- storytelling lounge
+- descriptions qui donnent envie
+- mise en scène des plats
+
+---
+
+# 🪄 ORIGINALITÉ
+
+Le site doit éviter le rendu template.
+
+## ACTIONS
+
+- créer des compositions visuelles uniques
+- améliorer la personnalité du site
+- renforcer l’identité King Aqua Lounge
+
+---
+
+# ⚡ PERFORMANCE
+
+Optimiser :
+
+- images
+- animations
+- chargement mobile
+- lazy loading
+
+---
+
+# 🔒 SAFE MODE
+
+⚠️ IMPORTANT
+
+- Ne pas casser le site
+- Ne pas supprimer les fonctionnalités existantes
+- Conserver la logique actuelle
+- Améliorer progressivement
+
+---
+
+# 🎯 LIVRABLE ATTENDU
+
+1. Analyse complète des problèmes
+2. Liste des améliorations UX/UI recommandées
+3. Suggestions visuelles concrètes
+4. Idées premium inspirées des meilleurs sites restaurant modernes
+5. Puis implémentation propre des améliorations
