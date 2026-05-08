@@ -336,10 +336,14 @@
     let active = frames.findIndex((frame) => frame.classList.contains("is-active"));
     if (active < 0) active = 0;
 
+    const dots = Array.from(document.querySelectorAll(".hero-dot"));
+
     const showFrame = (next) => {
       frames[active].classList.remove("is-active");
+      if (dots[active]) dots[active].classList.remove("is-active");
       active = (next + frames.length) % frames.length;
       frames[active].classList.add("is-active");
+      if (dots[active]) dots[active].classList.add("is-active");
     };
 
     let timer = null;
