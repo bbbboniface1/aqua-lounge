@@ -336,14 +336,18 @@
     let active = frames.findIndex((frame) => frame.classList.contains("is-active"));
     if (active < 0) active = 0;
 
-    const dots = Array.from(document.querySelectorAll(".hero-dot"));
+    const loadFrame = (index) => {
+      const img = frames[index]?.querySelector("img[data-src]");
+      if (!img) return;
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+    };
 
     const showFrame = (next) => {
       frames[active].classList.remove("is-active");
-      if (dots[active]) dots[active].classList.remove("is-active");
       active = (next + frames.length) % frames.length;
+      loadFrame(active);
       frames[active].classList.add("is-active");
-      if (dots[active]) dots[active].classList.add("is-active");
     };
 
     let timer = null;
@@ -364,22 +368,39 @@
       schedule();
     });
 
+    loadFrame(active);
+    window.setTimeout(() => loadFrame((active + 1) % frames.length), 1800);
     schedule();
   }
 
   function initParallax() {
     const blocks = Array.from(document.querySelectorAll("[data-parallax]"));
-    const canAnimate = blocks.length && window.matchMedia("(min-width: 761px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const canAnimate = blocks.length &&
+      window.matchMedia("(min-width: 961px)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      !("ontouchstart" in window);
     if (!canAnimate) return;
 
+    let viewport = window.innerHeight || 1;
+    let scrollY = window.scrollY;
     let ticking = false;
+
+    const cache = blocks.map((block) => {
+      const rect = block.getBoundingClientRect();
+      return {
+        el: block,
+        top: rect.top + scrollY,
+        height: rect.height,
+      };
+    });
+
     const update = () => {
-      const viewport = window.innerHeight || 1;
-      blocks.forEach((block) => {
-        const rect = block.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > viewport) return;
-        const progress = (rect.top + rect.height / 2 - viewport / 2) / viewport;
-        block.style.setProperty("--parallax-y", `${Math.max(-28, Math.min(28, progress * -34))}px`);
+      scrollY = window.scrollY;
+      cache.forEach(({ el, top, height }) => {
+        const relTop = top - scrollY;
+        if (relTop > viewport || relTop + height < 0) return;
+        const progress = (relTop + height / 2 - viewport / 2) / viewport;
+        el.style.setProperty("--parallax-y", `${Math.max(-24, Math.min(24, progress * -28))}px`);
       });
       ticking = false;
     };
@@ -390,9 +411,20 @@
       window.requestAnimationFrame(update);
     };
 
+    const onResize = () => {
+      viewport = window.innerHeight || 1;
+      scrollY = window.scrollY;
+      cache.forEach((item) => {
+        const rect = item.el.getBoundingClientRect();
+        item.top = rect.top + scrollY;
+        item.height = rect.height;
+      });
+      requestUpdate();
+    };
+
     update();
     window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("resize", onResize, { passive: true });
   }
 
   function initTypewriter() {
@@ -426,6 +458,67 @@
     });
   }
 
+  function updateOpenStatus() {
+    try {
+      const h = parseInt(
+        new Intl.DateTimeFormat("fr-FR", {
+          timeZone: "Africa/Bamako",
+          hour: "numeric",
+          hour12: false,
+        }).format(new Date()),
+        10
+      );
+      const isOpen = h >= 16 || h < 3;
+      document.querySelectorAll(".nav-status").forEach((el) => {
+        el.setAttribute("data-open", isOpen ? "1" : "0");
+        const text = el.querySelector(".status-text");
+        if (text) text.textContent = isOpen ? "Ouvert maintenant" : "Ouvre à 16h";
+      });
+    } catch (e) { /* Intl non supporté — texte par défaut conservé */ }
+  }
+
+  function warmImportantPages() {
+    if (!("fetch" in window)) return;
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (connection?.saveData) return;
+
+    const pages = ["index.html", "menu.html", "commande.html", "galerie.html", "contact.html"]
+      .filter((page) => !location.pathname.endsWith(page));
+    const run = () => {
+      pages.forEach((page, index) => {
+        window.setTimeout(() => {
+          fetch(page, { cache: "force-cache", priority: "low" }).catch(() => {});
+        }, 450 * index);
+      });
+    };
+
+    if ("requestIdleCallback" in window) window.requestIdleCallback(run, { timeout: 2500 });
+    else window.setTimeout(run, 1200);
+  }
+
+  function renderReviews() {
+    const root = document.querySelector("[data-reviews-root]");
+    if (!root || !window.KING_AQUA_REVIEWS) return;
+    root.innerHTML = window.KING_AQUA_REVIEWS.map((r) => {
+      const stars = Array.from({ length: 5 }, (_, i) =>
+        `<span class="${i < r.rating ? "" : "empty"}">★</span>`
+      ).join("");
+      return `
+        <article class="review-card reveal">
+          <div class="review-stars">${stars}</div>
+          <p class="review-text">"${r.text}"</p>
+          <div class="review-author">
+            <div class="review-avatar">${r.initial}</div>
+            <div class="review-meta">
+              <strong>${r.author}</strong>
+              <span>${r.occasion}</span>
+            </div>
+          </div>
+        </article>`;
+    }).join("");
+    reveal();
+  }
+
   function hideLoader() {
     document.body.classList.remove("loading");
     document.querySelector(".loader")?.classList.add("is-hidden");
@@ -439,6 +532,7 @@
     bindEvents();
     renderMenu();
     renderPopular();
+    renderReviews();
     renderOrder();
     updateCartCount();
     reveal();
@@ -446,5 +540,8 @@
     initHeroSlider();
     initNavbarScroll();
     initParallax();
+    updateOpenStatus();
+    warmImportantPages();
+    window.setInterval(updateOpenStatus, 60000);
   });
 })();

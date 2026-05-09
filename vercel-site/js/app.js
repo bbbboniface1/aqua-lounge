@@ -336,9 +336,17 @@
     let active = frames.findIndex((frame) => frame.classList.contains("is-active"));
     if (active < 0) active = 0;
 
+    const loadFrame = (index) => {
+      const img = frames[index]?.querySelector("img[data-src]");
+      if (!img) return;
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+    };
+
     const showFrame = (next) => {
       frames[active].classList.remove("is-active");
       active = (next + frames.length) % frames.length;
+      loadFrame(active);
       frames[active].classList.add("is-active");
     };
 
@@ -360,6 +368,8 @@
       schedule();
     });
 
+    loadFrame(active);
+    window.setTimeout(() => loadFrame((active + 1) % frames.length), 1800);
     schedule();
   }
 
@@ -467,6 +477,25 @@
     } catch (e) { /* Intl non supporté — texte par défaut conservé */ }
   }
 
+  function warmImportantPages() {
+    if (!("fetch" in window)) return;
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (connection?.saveData) return;
+
+    const pages = ["index.html", "menu.html", "commande.html", "galerie.html", "contact.html"]
+      .filter((page) => !location.pathname.endsWith(page));
+    const run = () => {
+      pages.forEach((page, index) => {
+        window.setTimeout(() => {
+          fetch(page, { cache: "force-cache", priority: "low" }).catch(() => {});
+        }, 450 * index);
+      });
+    };
+
+    if ("requestIdleCallback" in window) window.requestIdleCallback(run, { timeout: 2500 });
+    else window.setTimeout(run, 1200);
+  }
+
   function renderReviews() {
     const root = document.querySelector("[data-reviews-root]");
     if (!root || !window.KING_AQUA_REVIEWS) return;
@@ -512,6 +541,7 @@
     initNavbarScroll();
     initParallax();
     updateOpenStatus();
+    warmImportantPages();
     window.setInterval(updateOpenStatus, 60000);
   });
 })();

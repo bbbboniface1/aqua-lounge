@@ -6,18 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>King Aqua Lounge | Restaurant lounge premium à Bacodjicoroni ACI</title>
   <meta name="description" content="King Aqua Lounge à Bacodjicoroni ACI: cocktails, plats grillés, fruits de mer et ambiance lounge au bord du fleuve. Commande rapide via WhatsApp.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="images/optimized/bar-americain.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css?v=20260508-local">
   <meta property="og:type" content="website">
   <meta property="og:title" content="King Aqua Lounge | Restaurant premium à Bamako">
   <meta property="og:description" content="Grillades savoureuses, cocktails frais et ambiance lounge au bord du fleuve à Bacodjicoroni ACI, Bamako.">
-  <meta property="og:image" content="images/optimized/bar-americain.webp">
+  <meta property="og:image" content="https://aqua-lounge.vercel.app/images/optimized/bar-americain.webp">
+  <meta property="og:url" content="https://aqua-lounge.vercel.app/">
   <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="King Aqua Lounge">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="King Aqua Lounge | Restaurant premium à Bamako">
+  <meta name="twitter:description" content="Grillades savoureuses, cocktails frais et ambiance lounge au bord du fleuve à Bacodjicoroni ACI, Bamako.">
+  <meta name="twitter:image" content="https://aqua-lounge.vercel.app/images/optimized/bar-americain.webp">
+  <meta name="keywords" content="Aqua Lounge, King Aqua Lounge, restaurant Bamako, lounge Bamako, bar Bamako, Mali restaurant, Bacodjicoroni ACI, grillades Bamako, cocktails Bamako, fruits de mer Bamako, restaurant bord du fleuve, soirée Bamako">
+  <meta name="geo.region" content="ML-BKO">
+  <meta name="geo.placename" content="Bamako, Mali">
+  <link rel="canonical" href="https://aqua-lounge.vercel.app/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "King Aqua Lounge",
+    "alternateName": "Aqua Lounge Bamako",
+    "description": "Restaurant lounge premium à Bacodjicoroni ACI, Bamako. Cocktails, grillades, fruits de mer, ambiance unique au bord du fleuve Niger.",
+    "url": "https://aqua-lounge.vercel.app/",
+    "telephone": "+22377777477",
+    "email": "diarralanlux@gmail.com",
+    "image": "https://aqua-lounge.vercel.app/images/optimized/bar-americain.webp",
+    "logo": "https://aqua-lounge.vercel.app/images/optimized/logo.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bacodjicoroni ACI, bord du fleuve Niger",
+      "addressLocality": "Bamako",
+      "addressCountry": "ML"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "12.6392",
+      "longitude": "-8.0029"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "16:00",
+      "closes": "03:00"
+    },
+    "servesCuisine": ["Africaine", "Internationale", "Grillades", "Fruits de mer"],
+    "priceRange": "$$",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+22377777477",
+      "contactType": "reservations"
+    },
+    "sameAs": [
+      "https://wa.me/22377777477"
+    ]
+  }
+  </script>
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="css/style.css?v=20260506-8">
+  <link rel="stylesheet" href="css/style.css?v=20260508-fast">
 </head>
 <body class="loading home-page">
   <div class="loader"><div class="loader-mark">KA</div></div>
@@ -28,7 +79,10 @@
         <img src="images/optimized/logo.webp" alt="King Aqua Lounge" width="220" height="220" decoding="async">
       </a>
       <div class="nav-social">
-        <span class="nav-status"><span class="status-dot"></span>Ouvert 16h–3h</span>
+        <span class="nav-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Ouvert 16h–3h</span>
+        </span>
         <a href="https://wa.me/22377777477" aria-label="WhatsApp King Aqua Lounge" class="nav-whatsapp">WhatsApp</a>
         <a href="contact.html" aria-label="Contact King Aqua Lounge">Contact</a>
       </div>
@@ -40,6 +94,12 @@
       <a href="commande.html">Commande</a>
       <a href="galerie.html">Galerie</a>
       <a href="contact.html">Contact</a>
+      <div class="nav-status-drawer">
+        <span class="nav-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Ouvert 16h–3h</span>
+        </span>
+      </div>
     </div>
   </nav>
 
@@ -48,13 +108,13 @@
       <img src="images/optimized/bar-americain.webp" alt="Bar américain lumineux King Aqua Lounge" width="1280" height="960" sizes="100vw" fetchpriority="high" decoding="async">
     </div>
     <div class="hero-frame">
-      <img src="images/optimized/bellevue-fleuve.webp" alt="Vue splendide sur le fleuve depuis King Aqua Lounge" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/bellevue-fleuve.webp" alt="Vue splendide sur le fleuve depuis King Aqua Lounge" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
     </div>
     <div class="hero-frame">
-      <img src="images/optimized/interieur-lounge.webp" alt="Intérieur lounge King Aqua Lounge" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/interieur-lounge.webp" alt="Intérieur lounge King Aqua Lounge" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
     </div>
     <div class="hero-frame">
-      <img src="images/optimized/photo-exterieur.webp" alt="King Aqua Lounge posé au bord du fleuve" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/photo-exterieur.webp" alt="King Aqua Lounge posé au bord du fleuve" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
     </div>
     <button class="hero-control hero-control-prev" type="button" data-slider-prev aria-label="Image précédente">&lsaquo;</button>
     <button class="hero-control hero-control-next" type="button" data-slider-next aria-label="Image suivante">&rsaquo;</button>
@@ -200,16 +260,15 @@
     <section class="section">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">Avis clients</p>
+          <p class="eyebrow">Ils en parlent</p>
           <h2>Une adresse qui reste en tête.</h2>
         </div>
+        <div class="review-score reveal">
+          <span class="review-score-stars">★★★★★</span>
+          <span class="review-score-label">4.9 / 5 · 6 avis vérifiés</span>
+        </div>
       </div>
-      <div class="grid">
-        <article class="card review-card reveal"><div class="card-body"><div class="review-stars">★★★★★</div><h3>Ambiance parfaite</h3><p class="item-desc">Lumière douce, musique agréable et service attentif. Une vraie adresse pour sortir.</p><p class="review-author">— Mamadou K., ACI 2000</p></div></article>
-        <article class="card review-card reveal"><div class="card-body"><div class="review-stars">★★★★★</div><h3>Grillades généreuses</h3><p class="item-desc">Les gambas et le bœuf sont bien grillés, servis chauds et très savoureux.</p><p class="review-author">— Fatoumata D., Hamdallaye</p></div></article>
-        <article class="card review-card reveal"><div class="card-body"><div class="review-stars">★★★★★</div><h3>Commande facile</h3><p class="item-desc">Le panier WhatsApp va droit au but. On choisit, on envoie, c'est clair.</p><p class="review-author">— Ibrahima S., Badalabougou</p></div></article>
-        <article class="card review-card reveal"><div class="card-body"><div class="review-stars">★★★★★</div><h3>Cadre premium</h3><p class="item-desc">Un bel endroit au bord du fleuve pour dîner ou passer la soirée entre amis.</p><p class="review-author">— Aminata C., Hippodrome</p></div></article>
-      </div>
+      <div class="reviews-grid" data-reviews-root></div>
     </section>
   </main>
 
@@ -220,7 +279,7 @@
         <p>Entrez en relation avec King Aqua Lounge pour vos commandes, réservations, soirées et nouveautés.</p>
       </section>
       <section class="footer-block">
-        <h2>Galérie</h2>
+        <h2>Galerie</h2>
         <div class="footer-gallery" aria-label="Galerie King Aqua Lounge">
           <a href="galerie.html"><img src="images/optimized/bellevue-fleuve.webp" alt="Vue fleuve King Aqua Lounge" loading="lazy" decoding="async"></a>
           <a href="galerie.html"><img src="images/optimized/bar-americain.webp" alt="Bar américain King Aqua Lounge" loading="lazy" decoding="async"></a>
@@ -235,8 +294,9 @@
         <address>
           Bacodjicoroni ACI<br>
           Au bord du fleuve, Bamako<br><br>
+          <strong>Horaires :</strong> Tous les jours · 16h – 3h<br><br>
           Tel.: <a href="tel:+22377777477">+223 77 77 74 77</a><br>
-          <a class="footer-route" href="https://maps.app.goo.gl/rDds5Szknh3ycan3A?g_st=iw" target="_blank" rel="noopener">Itinéraire Google Maps</a><br><br>
+          <a class="footer-route" href="https://maps.app.goo.gl/MwcZikQCiT3uQVkv6" target="_blank" rel="noopener">Itinéraire Google Maps</a><br><br>
           <a href="mailto:diarralanlux@gmail.com">diarralanlux@gmail.com</a>
         </address>
       </section>
@@ -251,8 +311,9 @@
   <a class="call-float" href="tel:+22377777477" aria-label="Appeler King Aqua Lounge">Appeler</a>
   <a class="cart-pill" href="commande.html" data-cart-count>0</a>
   <a class="whatsapp-float" href="https://wa.me/22377777477" aria-label="Contacter King Aqua Lounge sur WhatsApp">WA</a>
-  <script src="js/menu-data.js?v=20260506-8"></script>
-  <script src="js/app.js?v=20260506-8"></script>
+  <script src="js/menu-data.js?v=20260508-fast"></script>
+  <script src="js/testimonials-data.js?v=20260508-fast"></script>
+  <script src="js/app.js?v=20260508-fast"></script>
   <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'))}</script>
 </body>
 </html>
