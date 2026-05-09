@@ -1149,10 +1149,46 @@ h1 {
   gap: 24px;
 }
 .map {
+  display: block;
   min-height: 440px;
   width: 100%;
   border: 0;
   filter: grayscale(.28) contrast(1.08);
+}
+.map-mobile {
+  display: none;
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+}
+.map-mobile img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.map-mobile-cta {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(32,26,23,.82);
+  color: #f0cf78;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border-radius: 40px;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+}
+@media (max-width: 1080px) {
+  .map-desktop { display: none; }
+  .map-mobile  { display: block; }
 }
 .footer {
   margin-top: clamp(22px, 4vw, 54px);
@@ -2373,5 +2409,134 @@ body {
 
   .home-page .hero .actions {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   PREMIUM UPGRADE — King Aqua Lounge
+   ============================================ */
+
+/* --- Nav: status dot animation --- */
+.status-dot {
+  animation: statusPulse 2.2s ease-in-out infinite;
+}
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(76,255,138,.6); }
+  50% { opacity: .55; box-shadow: 0 0 18px rgba(76,255,138,.9); }
+}
+
+/* --- Nav: WhatsApp pill --- */
+.nav-whatsapp {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 5px;
+  background: rgba(37,211,102,.16) !important;
+  border: 1px solid rgba(37,211,102,.38) !important;
+  border-radius: 999px !important;
+  padding: 0 14px !important;
+  height: 32px !important;
+  min-width: 0 !important;
+  width: auto !important;
+  font-size: .76rem !important;
+  font-weight: 800 !important;
+  color: #c8f5d8 !important;
+  letter-spacing: .05em !important;
+  text-transform: uppercase !important;
+  transition: background .2s ease, transform .2s ease !important;
+}
+.nav-whatsapp::before { content: "●"; font-size: .5rem; color: #25d366; }
+.nav-whatsapp:hover {
+  background: rgba(37,211,102,.28) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* --- Hero: slider dots --- */
+.hero-dots {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.hero-dot {
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.32);
+  transition: background .35s ease, width .35s cubic-bezier(.2,.8,.2,1);
+  flex-shrink: 0;
+}
+.hero-dot.is-active {
+  background: var(--gold-2);
+  width: 42px;
+}
+@media (max-width: 760px) {
+  .hero-dots { bottom: 160px; }
+  .home-page .hero-dots { bottom: 108px; }
+}
+
+/* --- Badge: star prefix --- */
+.badge::before {
+  content: "★ ";
+  font-size: .8em;
+}
+
+/* --- Card price tag: gold --- */
+.card-media-price {
+  background: linear-gradient(120deg, rgba(240,207,120,.97), rgba(210,162,62,.96)) !important;
+  color: #1b1109 !important;
+  font-size: .86rem !important;
+  font-weight: 900 !important;
+  padding: 6px 13px !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.24) !important;
+}
+
+/* --- Why grid: big serif numbers --- */
+.why-item span {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 4.5rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  opacity: .22 !important;
+  margin-bottom: 8px !important;
+}
+.why-item:hover {
+  border-color: rgba(201,161,74,.38) !important;
+  transform: translateY(-4px);
+  transition: transform .28s ease, border-color .28s ease;
+}
+
+/* --- Review cards: gold left border --- */
+.review-card {
+  border-left: 3px solid rgba(214,169,76,.48) !important;
+}
+.review-card:hover {
+  border-color: rgba(214,169,76,.82) !important;
+}
+
+/* --- Signature rail: gold accent + hover --- */
+.signature-rail article {
+  border-left: 3px solid rgba(214,169,76,.52) !important;
+  transition: transform .28s ease, box-shadow .28s ease !important;
+}
+.signature-rail article:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 28px 68px rgba(42,28,18,.32) !important;
+}
+
+/* --- Mobile bar: bigger targets --- */
+@media (max-width: 760px) {
+  .mobile-order-bar {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    padding: 8px !important;
+  }
+  .mobile-order-bar a {
+    min-height: 52px !important;
+    font-size: .8rem !important;
   }
 }

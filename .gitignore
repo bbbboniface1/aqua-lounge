@@ -6,6 +6,7 @@ tmp
 out-tsc
 *.tsbuildinfo
 .vercel
+public/
 .expo
 .expo-shared
 

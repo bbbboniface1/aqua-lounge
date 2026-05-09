@@ -1,4 +1,4 @@
-const CACHE = "king-aqua-v7";
+const CACHE = "king-aqua-v9-local-fonts";
 const ASSETS = [
   "/",
   "/index.html",
@@ -6,17 +6,14 @@ const ASSETS = [
   "/commande.html",
   "/galerie.html",
   "/contact.html",
+  "/css/fonts.css",
   "/css/style.css",
   "/js/app.js",
+  "/js/menu-data.js",
+  "/fonts/montserrat-latin.woff2",
+  "/fonts/cormorant-garamond-latin.woff2",
   "/images/optimized/logo.webp",
   "/images/optimized/bar-americain.webp",
-  "/images/optimized/bellevue-fleuve.webp",
-  "/images/optimized/deventure-fleuve.webp",
-  "/images/optimized/photo-exterieur.webp",
-  "/images/optimized/interieur-lounge.webp",
-  "/images/optimized/restau-fleuve.webp",
-  "/images/optimized/fond-accueil.webp",
-  "/images/optimized/terrasse-lounge.webp",
   "/favicon.svg",
 ];
 
@@ -46,21 +43,24 @@ self.addEventListener("fetch", (e) => {
 
   if (isNavigation) {
     e.respondWith(
-      fetch(e.request)
-        .then((res) => {
-          if (res && res.status === 200) {
-            const clone = res.clone();
-            caches.open(CACHE).then((cache) => cache.put(e.request, clone));
-          }
-          return res;
-        })
-        .catch(() => caches.match(e.request))
+      caches.match(e.request, { ignoreSearch: true }).then((cached) => {
+        const fresh = fetch(e.request)
+          .then((res) => {
+            if (res && res.status === 200) {
+              const clone = res.clone();
+              caches.open(CACHE).then((cache) => cache.put(e.request, clone));
+            }
+            return res;
+          })
+          .catch(() => cached || caches.match("/index.html", { ignoreSearch: true }));
+        return cached || fresh;
+      })
     );
     return;
   }
 
   e.respondWith(
-    caches.match(e.request).then((cached) => {
+    caches.match(e.request, { ignoreSearch: true }).then((cached) => {
       if (cached) return cached;
       return fetch(e.request).then((res) => {
         if (res && res.status === 200) {
