@@ -317,6 +317,12 @@
       nodes.forEach((node) => node.classList.add("visible"));
       return;
     }
+    nodes.forEach((node) => {
+      const rect = node.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 120 && rect.bottom >= 0) {
+        node.classList.add("visible");
+      }
+    });
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -324,8 +330,10 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: .14 });
-    nodes.forEach((node) => observer.observe(node));
+    }, { threshold: 0, rootMargin: "0px 0px 120px 0px" });
+    nodes.forEach((node) => {
+      if (!node.classList.contains("visible")) observer.observe(node);
+    });
   }
 
   function initHeroSlider() {
