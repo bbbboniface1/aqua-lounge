@@ -2667,3 +2667,629 @@ body {
     display: none;
   }
 }
+
+@media (max-width: 760px) {
+  .nav.open .burger {
+    top: 104px;
+    right: 16px;
+  }
+
+  .nav.open .nav-links {
+    width: min(72vw, 360px);
+    min-width: 282px;
+    max-width: 372px;
+    padding: 286px 34px 42px;
+    gap: 0;
+    background:
+      radial-gradient(circle at 52% 16%, rgba(214,169,76,.12), transparent 31%),
+      linear-gradient(180deg, #44323f 0%, #352936 100%);
+    box-shadow: 24px 0 60px rgba(0,0,0,.26);
+  }
+
+  .nav.open .nav-links::after {
+    content: "✉  diarralanlux@gmail.com";
+    top: 30px;
+    left: 28px;
+    right: 28px;
+    max-width: calc(100% - 56px);
+    overflow: hidden;
+    color: rgba(255, 255, 255, .9);
+    font-size: clamp(.72rem, 3.15vw, .88rem);
+    font-weight: 600;
+    letter-spacing: .005em;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .nav.open .nav-links::before {
+    top: 104px;
+    width: 158px;
+    height: 158px;
+  }
+
+  .nav.open .nav-links a {
+    position: relative;
+    width: 100%;
+    padding: 15px 0 16px;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: clamp(.94rem, 3.8vw, 1.08rem);
+    font-weight: 600;
+    letter-spacing: .12em;
+    line-height: 1.1;
+    text-shadow: 0 1px 16px rgba(0,0,0,.18);
+  }
+
+  .nav.open .nav-links a + a {
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+
+  .nav.open .nav-links a.active {
+    color: var(--gold-2);
+  }
+
+  .nav.open .nav-links a.active::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold-2);
+    transform: translateY(-50%);
+  }
+}
+
+/* Phase 1: refined typography and mobile reading rhythm */
+.eyebrow,
+.card-kicker,
+.menu-conversion-strip .eyebrow,
+.review-score-label,
+.footer-block h2,
+.nav-links,
+.btn,
+.tabs,
+.mobile-order-bar a {
+  letter-spacing: .1em;
+}
+
+.section-head h2,
+.story h2,
+.experience h2,
+.cinema-copy h2,
+.visual-panel h2,
+.menu-category h2 {
+  text-wrap: balance;
+}
+
+.story p,
+.experience p:not(.eyebrow),
+.cinema-copy p:not(.eyebrow),
+.footer-block p,
+.footer-block address,
+.item-desc,
+.review-text {
+  line-height: 1.72;
+}
+
+.btn {
+  font-weight: 800;
+  letter-spacing: .045em;
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 16px;
+    line-height: 1.62;
+  }
+
+  .eyebrow,
+  .card-kicker,
+  .menu-conversion-strip .eyebrow {
+    font-size: .7rem;
+    letter-spacing: .11em;
+    line-height: 1.35;
+  }
+
+  .hero-content {
+    max-width: min(100%, 420px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.45rem, 12vw, 3.7rem);
+    line-height: .96;
+    text-wrap: balance;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .section {
+    padding: 62px 18px;
+  }
+
+  .section-head {
+    margin-bottom: 22px;
+  }
+
+  .section-head h2,
+  .story h2,
+  .experience h2,
+  .cinema-copy h2,
+  .visual-panel h2,
+  .menu-category h2 {
+    font-size: clamp(2.15rem, 10vw, 3.35rem);
+    line-height: .98;
+    letter-spacing: 0;
+  }
+
+  .story p,
+  .experience p:not(.eyebrow),
+  .cinema-copy p:not(.eyebrow),
+  .footer-block p,
+  .footer-block address,
+  .item-desc {
+    font-size: .98rem;
+    line-height: 1.7;
+  }
+
+  .inner-page .page-hero h1 {
+    font-size: clamp(2.35rem, 11vw, 3.65rem);
+    line-height: 1;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .menu-conversion-strip {
+    gap: 18px;
+  }
+
+  .menu-conversion-strip h2 {
+    font-size: clamp(1.75rem, 8vw, 2.45rem);
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  .tabs {
+    gap: 8px;
+    padding-top: 18px;
+  }
+
+  .tab {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    font-size: .78rem;
+    letter-spacing: .06em;
+  }
+
+  .card h3 {
+    font-size: clamp(1.35rem, 6.4vw, 1.82rem);
+    line-height: 1.02;
+  }
+
+  .card-kicker {
+    margin-bottom: 8px;
+  }
+
+  .item-desc {
+    margin-top: 8px;
+  }
+
+  .btn,
+  .card .add-to-cart,
+  .mobile-order-bar a {
+    min-height: 52px;
+    font-size: .86rem;
+    letter-spacing: .045em;
+  }
+
+  .mobile-order-bar {
+    border-radius: 18px;
+  }
+
+  .nav.open .nav-links a {
+    font-size: clamp(.98rem, 4vw, 1.12rem);
+    letter-spacing: .1em;
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+}
+
+/* Phase 2: mobile menu cards and action comfort */
+@media (max-width: 760px) {
+  [data-menu-root].section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .menu-category {
+    margin-bottom: 44px;
+  }
+
+  .menu-grid {
+    gap: 16px;
+  }
+
+  .card {
+    overflow: hidden;
+    border-radius: 10px;
+    border-color: rgba(66, 42, 23, .12);
+    background: #fffaf0;
+    box-shadow: 0 16px 42px rgba(44, 30, 18, .15);
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: 0 16px 42px rgba(44, 30, 18, .15);
+  }
+
+  .card-media {
+    aspect-ratio: 1.16 / .78;
+    background: #271d17;
+  }
+
+  .card-media img {
+    filter: saturate(1.08) contrast(1.03) brightness(1.03);
+    transform: none;
+  }
+
+  .card:hover .card-media img {
+    transform: none;
+  }
+
+  .card-media::after {
+    background: linear-gradient(0deg, rgba(24,16,10,.18), rgba(24,16,10,0) 52%);
+    opacity: 1;
+  }
+
+  .card-media-price {
+    right: 10px;
+    bottom: 10px;
+    padding: 8px 11px;
+    font-size: .82rem;
+    letter-spacing: .01em;
+    background: rgba(255,250,240,.96);
+    border: 1px solid rgba(61, 39, 20, .08);
+  }
+
+  .badge {
+    top: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    font-size: .68rem;
+    letter-spacing: .06em;
+  }
+
+  .card-body {
+    padding: 17px 16px 18px;
+  }
+
+  .card-kicker {
+    color: #9f681e;
+    font-size: .68rem;
+  }
+
+  .card h3 {
+    max-width: 96%;
+    font-size: clamp(1.42rem, 6.8vw, 1.95rem);
+  }
+
+  .item-desc {
+    color: #675745;
+    max-width: 34rem;
+  }
+
+  .card-actions {
+    margin-top: 16px;
+  }
+
+  .card .add-to-cart {
+    min-height: 54px;
+    justify-content: center;
+    border-radius: 999px;
+    box-shadow: 0 12px 28px rgba(201, 161, 74, .22);
+  }
+
+  .card .add-to-cart:active {
+    transform: translateY(1px);
+  }
+
+  .tabs {
+    gap: 9px;
+    padding: 10px 14px 12px;
+    background: rgba(255, 250, 240, .98);
+    box-shadow: 0 10px 26px rgba(45, 31, 20, .08);
+  }
+
+  .tab {
+    min-height: 44px;
+    padding: 10px 15px;
+    border-radius: 999px;
+    background: rgba(52, 38, 28, .045);
+  }
+
+  .tab.active {
+    box-shadow: 0 8px 20px rgba(201, 161, 74, .22);
+  }
+}
+
+/* Phase 3: mobile checkout and cart comfort */
+@media (max-width: 760px) {
+  .info-band {
+    display: grid;
+    gap: 8px;
+    padding: 13px 16px;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .order-layout {
+    gap: 18px;
+  }
+
+  .order-panel,
+  .contact-card {
+    border-radius: 10px;
+    padding: 18px 16px;
+    background: rgba(255, 250, 240, .97);
+    color: var(--ink);
+    border-color: rgba(66, 42, 23, .12);
+    box-shadow: 0 14px 38px rgba(44, 30, 18, .13);
+  }
+
+  .order-panel .section-head {
+    margin-bottom: 14px;
+  }
+
+  .order-panel .section-head h2 {
+    font-size: clamp(1.8rem, 8vw, 2.55rem);
+    line-height: 1;
+  }
+
+  .order-panel .eyebrow {
+    color: #9f681e;
+  }
+
+  .customer-form {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom-color: rgba(66, 42, 23, .12);
+  }
+
+  .field-grid {
+    gap: 12px;
+  }
+
+  .field {
+    gap: 6px;
+  }
+
+  .field span {
+    color: #5d4a38;
+    font-weight: 800;
+  }
+
+  .field input {
+    min-height: 52px;
+    border-radius: 8px;
+    border-color: rgba(66, 42, 23, .14);
+    background: rgba(255,255,255,.74);
+    color: var(--ink);
+    font-size: 1rem;
+  }
+
+  .field input:focus {
+    background: #fff;
+    border-color: rgba(166, 110, 32, .62);
+    box-shadow: 0 0 0 3px rgba(201, 161, 74, .14);
+  }
+
+  .form-error {
+    color: #b04236;
+    line-height: 1.45;
+  }
+
+  .cart-line {
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 14px 0;
+    border-bottom-color: rgba(66, 42, 23, .1);
+  }
+
+  .cart-line img,
+  .cart-line .mini-placeholder {
+    width: 64px;
+    height: 60px;
+    border-radius: 8px;
+  }
+
+  .cart-line strong {
+    line-height: 1.22;
+  }
+
+  .cart-line > .price {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 2px;
+    color: #9f681e;
+    font-size: 1rem;
+  }
+
+  .qty {
+    margin-top: 8px;
+    border-color: rgba(66, 42, 23, .14);
+    border-radius: 999px;
+    background: rgba(66, 42, 23, .045);
+    overflow: hidden;
+  }
+
+  .qty button {
+    width: 38px;
+    height: 38px;
+    color: var(--ink);
+    font-size: 1.05rem;
+    font-weight: 900;
+  }
+
+  .qty span {
+    min-width: 24px;
+    text-align: center;
+    font-weight: 900;
+  }
+
+  .remove {
+    height: 38px;
+    margin-top: 8px;
+    color: #9f681e;
+    font-weight: 800;
+  }
+
+  .summary-row {
+    gap: 16px;
+    border-bottom-color: rgba(66, 42, 23, .1);
+    color: #423226;
+    line-height: 1.42;
+  }
+
+  .summary-row .muted {
+    text-align: right;
+    color: #76634f;
+  }
+
+  .total {
+    margin: 18px 0;
+    color: #9f681e;
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
+    line-height: 1;
+  }
+
+  [data-whatsapp-order],
+  .order-panel .btn.dark {
+    width: 100%;
+    min-height: 54px;
+    margin-top: 10px;
+    justify-content: center;
+    border-radius: 999px;
+  }
+
+  [data-whatsapp-order] {
+    background: #25d366;
+    color: #102116;
+    box-shadow: 0 12px 30px rgba(37, 211, 102, .22);
+  }
+
+  .order-panel .btn.dark {
+    background: rgba(52, 38, 28, .08);
+    color: var(--ink);
+    border: 1px solid rgba(66, 42, 23, .12);
+  }
+
+  .mobile-order-bar {
+    left: 10px;
+    right: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    grid-template-columns: .82fr .9fr 1.18fr;
+    gap: 7px;
+    padding: 7px;
+    background: rgba(24, 18, 14, .98);
+  }
+
+  .mobile-order-bar a {
+    min-height: 48px;
+    padding: 0 8px;
+    line-height: 1;
+  }
+}
+
+/* Phase 4: page-specific imagery and safer mobile spacing */
+.menu-page .page-hero {
+  background:
+    linear-gradient(90deg, rgba(35,9,7,.5), rgba(19,12,10,.24) 46%, rgba(35,9,7,.52)),
+    linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.34)),
+    url("../images/optimized/menu-grillades.webp") center 48% / cover no-repeat;
+}
+
+.commande-page .page-hero {
+  background:
+    linear-gradient(90deg, rgba(35,9,7,.5), rgba(19,12,10,.26) 46%, rgba(35,9,7,.54)),
+    linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.36)),
+    url("../images/optimized/menu-pates.webp") center 52% / cover no-repeat;
+}
+
+.galerie-page .page-hero {
+  background:
+    linear-gradient(90deg, rgba(35,9,7,.5), rgba(19,12,10,.22) 46%, rgba(35,9,7,.5)),
+    linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.32)),
+    url("../images/optimized/bellevue-fleuve.webp") center 48% / cover no-repeat;
+}
+
+.contact-page .page-hero {
+  background:
+    linear-gradient(90deg, rgba(35,9,7,.48), rgba(19,12,10,.24) 46%, rgba(35,9,7,.5)),
+    linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.34)),
+    url("../images/optimized/photo-exterieur.webp") center 45% / cover no-repeat;
+}
+
+.not-found-page .page-hero {
+  background:
+    linear-gradient(90deg, rgba(35,9,7,.56), rgba(19,12,10,.3) 46%, rgba(35,9,7,.58)),
+    linear-gradient(180deg, rgba(0,0,0,.24), rgba(0,0,0,.38)),
+    url("../images/optimized/deventure-fleuve.webp") center 46% / cover no-repeat;
+}
+
+.gallery-item:nth-child(1) img,
+.gallery-item:nth-child(6) img {
+  object-position: center 42%;
+}
+
+.gallery-item:nth-child(5) img,
+.gallery-item:nth-child(7) img {
+  object-position: center 48%;
+}
+
+@media (max-width: 760px) {
+  .menu-page .page-hero,
+  .commande-page .page-hero,
+  .galerie-page .page-hero,
+  .contact-page .page-hero,
+  .not-found-page .page-hero {
+    min-height: clamp(360px, 54svh, 500px);
+  }
+
+  .galerie-page .page-hero {
+    background-position: center 42%;
+  }
+
+  .contact-page .page-hero {
+    background-position: center 50%;
+  }
+
+  .section,
+  [data-menu-root].section,
+  .gallery-section,
+  .contact-layout,
+  .order-layout {
+    padding-bottom: max(116px, calc(96px + env(safe-area-inset-bottom)));
+  }
+
+  .footer {
+    padding-bottom: max(118px, calc(96px + env(safe-area-inset-bottom)));
+  }
+
+  .gallery-grid {
+    grid-auto-rows: minmax(248px, 68vw);
+  }
+
+  .gallery-item img {
+    filter: saturate(1.08) contrast(1.02) brightness(1.06);
+  }
+
+  .gallery-item::after {
+    background: linear-gradient(180deg, transparent 62%, rgba(0,0,0,.16));
+  }
+}
