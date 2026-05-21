@@ -1,4 +1,4 @@
-const CACHE = "king-aqua-v11-fix";
+const CACHE = "king-aqua-v11-visual-polish";
 const ASSETS = [
   "/",
   "/index.html",
@@ -14,6 +14,8 @@ const ASSETS = [
   "/fonts/cormorant-garamond-latin.woff2",
   "/images/optimized/logo.webp",
   "/images/optimized/bar-americain.webp",
+  "/images/optimized/bellevue-fleuve.webp",
+  "/images/optimized/photo-exterieur.webp",
   "/favicon.svg",
 ];
 
