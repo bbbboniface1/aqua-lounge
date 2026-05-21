@@ -1088,7 +1088,9 @@ h1 {
 }
 .total { color: var(--gold-2); font-size: 1.6rem; font-weight: 900; }
 
-.gallery-section { background: linear-gradient(180deg, #0d0d0d, #11100f 48%, #0a0a0a); }
+.gallery-section {
+  background: linear-gradient(180deg, #f8efe1, #fff8ed 46%, #f6ead6);
+}
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -1098,9 +1100,10 @@ h1 {
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(74,50,32,.12);
   margin: 0;
-  box-shadow: 0 18px 46px rgba(0,0,0,.28);
+  background: #f5ead8;
+  box-shadow: 0 18px 48px rgba(73,45,21,.16);
   transform: translateZ(0);
   transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
@@ -1110,18 +1113,21 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(.9) contrast(1.08) brightness(.82);
+  filter: saturate(1.06) contrast(1.02) brightness(1.04);
   transition: transform .65s ease, filter .35s ease;
+}
+.gallery-item::after {
+  background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.18));
 }
 .gallery-item:hover {
   transform: translateY(-6px) scale(1.012);
-  border-color: rgba(201,161,74,.5);
-  box-shadow: 0 28px 78px rgba(0,0,0,.42);
+  border-color: rgba(201,161,74,.54);
+  box-shadow: 0 28px 72px rgba(73,45,21,.2);
   z-index: 3;
 }
 .gallery-item:hover img {
   transform: scale(1.08);
-  filter: saturate(.98) contrast(1.1) brightness(.95);
+  filter: saturate(1.12) contrast(1.03) brightness(1.08);
 }
 .gallery-item figcaption {
   position: absolute;
@@ -1129,12 +1135,14 @@ h1 {
   right: 16px;
   bottom: 14px;
   z-index: 2;
-  color: var(--cream);
+  color: #fff;
   font-size: .78rem;
+  font-weight: 800;
   letter-spacing: .16em;
   text-transform: uppercase;
   transform: translateY(12px);
-  opacity: 0;
+  opacity: .92;
+  text-shadow: 0 2px 14px rgba(0,0,0,.42);
   transition: opacity .28s ease, transform .28s ease;
 }
 .gallery-item:hover figcaption { opacity: 1; transform: translateY(0); }
@@ -2538,5 +2546,124 @@ body {
   .mobile-order-bar a {
     min-height: 52px !important;
     font-size: .8rem !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav.open {
+    position: fixed;
+    inset: 0;
+    min-height: 100dvh;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  .nav.open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1097;
+    background: rgba(0, 0, 0, .66);
+  }
+
+  .nav.open .nav-topline {
+    min-height: 0;
+  }
+
+  .nav.open .nav-topline .brand,
+  .nav.open .nav-contact,
+  .nav.open .nav-social {
+    display: none;
+  }
+
+  .nav.open .burger {
+    position: fixed;
+    top: 116px;
+    right: 18px;
+    z-index: 1102;
+    width: 58px;
+    height: 58px;
+    border: 0;
+    background: transparent;
+    color: var(--gold-2);
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .nav.open .burger span,
+  .nav.open .burger span::before,
+  .nav.open .burger span::after {
+    width: 34px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--gold-2);
+  }
+
+  .nav.open .burger span {
+    background: transparent;
+  }
+
+  .nav.open .burger span::before {
+    transform: rotate(45deg);
+  }
+
+  .nav.open .burger span::after {
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+
+  .nav.open .nav-links {
+    width: min(63vw, 372px);
+    min-width: 246px;
+    max-width: 372px;
+    height: 100dvh;
+    padding: 320px 32px 42px;
+    gap: 17px;
+    background: #3a2d38;
+    box-shadow: none;
+    z-index: 1100;
+    pointer-events: auto;
+  }
+
+  .nav.open .nav-links::after {
+    content: "✉  diarralanlux@gmail.com";
+    top: 34px;
+    left: 32px;
+    right: 20px;
+    color: rgba(255, 255, 255, .94);
+    font-size: .92rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+    white-space: nowrap;
+  }
+
+  .nav.open .nav-links::before {
+    top: 122px;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translateX(-50%);
+    border-radius: 0;
+    background: url("../images/optimized/logo.webp") center / contain no-repeat;
+    box-shadow: none;
+  }
+
+  .nav.open .nav-links a {
+    padding: 0;
+    color: rgba(255, 255, 255, .94);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .nav.open .nav-links a::after {
+    display: none;
+  }
+
+  .nav.open .nav-status-drawer {
+    display: none;
   }
 }
