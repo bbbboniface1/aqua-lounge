@@ -1,4 +1,4 @@
-const CACHE = "king-aqua-v9-local-fonts";
+const CACHE = "king-aqua-v11-fix";
 const ASSETS = [
   "/",
   "/index.html",
