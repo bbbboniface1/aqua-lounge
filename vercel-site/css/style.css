@@ -3205,35 +3205,7 @@ body {
   }
 }
 
-/* Phase 4: page-specific imagery and safer mobile spacing */
-.menu-page .page-hero {
-  background:
-    linear-gradient(90deg, rgba(35,9,7,.5), rgba(19,12,10,.24) 46%, rgba(35,9,7,.52)),
-    linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.34)),
-    url("../images/optimized/menu-grillades.webp") center 48% / cover no-repeat;
-}
-
-.commande-page .page-hero {
-  background:
-    linear-gradient(90deg, rgba(35,9,7,.5), rgba(19,12,10,.26) 46%, rgba(35,9,7,.54)),
-    linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.36)),
-    url("../images/optimized/menu-pates.webp") center 52% / cover no-repeat;
-}
-
-.galerie-page .page-hero {
-  background:
-    linear-gradient(90deg, rgba(35,9,7,.5), rgba(19,12,10,.22) 46%, rgba(35,9,7,.5)),
-    linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.32)),
-    url("../images/optimized/bellevue-fleuve.webp") center 48% / cover no-repeat;
-}
-
-.contact-page .page-hero {
-  background:
-    linear-gradient(90deg, rgba(35,9,7,.48), rgba(19,12,10,.24) 46%, rgba(35,9,7,.5)),
-    linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.34)),
-    url("../images/optimized/photo-exterieur.webp") center 45% / cover no-repeat;
-}
-
+/* Page-specific imagery — toutes les pages internes utilisent bar-americain via .inner-page */
 .not-found-page .page-hero {
   background:
     linear-gradient(90deg, rgba(35,9,7,.56), rgba(19,12,10,.3) 46%, rgba(35,9,7,.58)),
@@ -3241,31 +3213,18 @@ body {
     url("../images/optimized/deventure-fleuve.webp") center 46% / cover no-repeat;
 }
 
-.gallery-item:nth-child(1) img,
-.gallery-item:nth-child(6) img {
+.gallery-item:nth-child(1) img {
   object-position: center 42%;
 }
 
-.gallery-item:nth-child(5) img,
-.gallery-item:nth-child(7) img {
+.gallery-item:nth-child(5) img {
   object-position: center 48%;
 }
 
 @media (max-width: 760px) {
-  .menu-page .page-hero,
-  .commande-page .page-hero,
-  .galerie-page .page-hero,
-  .contact-page .page-hero,
+  .inner-page .page-hero,
   .not-found-page .page-hero {
     min-height: clamp(360px, 54svh, 500px);
-  }
-
-  .galerie-page .page-hero {
-    background-position: center 42%;
-  }
-
-  .contact-page .page-hero {
-    background-position: center 50%;
   }
 
   .section,
