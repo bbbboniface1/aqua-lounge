@@ -7,7 +7,7 @@ const vercelOut = path.join(root, ".vercel", "output");
 const staticOut = path.join(vercelOut, "static");
 
 const pages = ["index.html", "menu.html", "commande.html", "galerie.html", "contact.html", "404.html"];
-const files = ["manifest.json", "sw.js", "favicon.svg"];
+const files = ["manifest.json", "sw.js", "favicon.svg", "robots.txt", "sitemap.xml"];
 const dirs = ["css", "js", "fonts", path.join("images", "optimized"), path.join("images", "dishes")];
 
 function copyFile(relativePath) {
