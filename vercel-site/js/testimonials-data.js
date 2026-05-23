@@ -4,47 +4,47 @@ window.KING_AQUA_REVIEWS = [
     author: "Aminata Diallo",
     initial: "A",
     rating: 5,
-    occasion: "Soirée en famille",
-    text: "Une expérience inoubliable. Les gambas grillées étaient fondantes, la vue sur le fleuve magnifique. Le service était attentif sans être intrusif. On reviendra sans hésiter."
+    occasion: "Diner en famille",
+    text: "On etait venus pour les grillades, on est restes plus longtemps que prevu. Le poulet et les gambas etaient bien servis, et la terrasse est agreable le soir."
   },
   {
     id: "r2",
     author: "Ibrahim Coulibaly",
     initial: "I",
     rating: 5,
-    occasion: "Dîner d'affaires",
-    text: "Le cadre est vraiment premium pour Bamako. La côte de bœuf était parfaite, le bar américain impressionnant. Mes clients étaient sous le charme. À recommander fortement."
+    occasion: "Repas avec des collegues",
+    text: "Cadre propre, service correct et plats arrives chauds. La cote de boeuf etait bonne. Pratique aussi pour retrouver facilement l'adresse avec Google Maps."
   },
   {
     id: "r3",
-    author: "Fatoumata Traoré",
+    author: "Fatoumata Traore",
     initial: "F",
     rating: 5,
     occasion: "Anniversaire",
-    text: "On a fêté mon anniversaire ici et c'était magique. L'ambiance lounge, la lumière dorée, les cocktails... tout était parfait. Le panier WhatsApp est une vraie bonne idée."
+    text: "Nous avons fete un anniversaire en petit groupe. L'equipe nous a bien places, la musique n'etait pas trop forte et tout le monde a pu commander ce qu'il voulait."
   },
   {
     id: "r4",
-    author: "Moussa Keïta",
+    author: "Moussa Keita",
     initial: "M",
     rating: 4,
     occasion: "Sortie entre amis",
-    text: "Superbe endroit au bord du fleuve. Les brochettes de capitaine étaient excellentes, bien grillées et généreuses. L'ambiance musicale est parfaite pour une soirée détendue."
+    text: "Bon endroit pour se poser apres le travail. Les brochettes de capitaine etaient bien grillees. Il peut y avoir un peu d'attente quand la terrasse est pleine."
   },
   {
     id: "r5",
     author: "Kadiatou Sanogo",
     initial: "K",
     rating: 5,
-    occasion: "Dîner romantique",
-    text: "Le meilleur restaurant de Bamako pour une soirée romantique. La vue, les saveurs et l'accueil font de King Aqua Lounge un endroit à part. Les spaghetti aux crevettes étaient divins."
+    occasion: "Soiree a deux",
+    text: "La vue cote fleuve fait vraiment la difference. Les spaghetti aux crevettes etaient copieux, et le personnel est reste disponible sans trop insister."
   },
   {
     id: "r6",
     author: "Seydou Bah",
     initial: "S",
     rating: 5,
-    occasion: "Client régulier",
-    text: "J'y vais au moins deux fois par mois. La qualité est constante, le staff sympathique et la commande via WhatsApp est rapide et claire. Un niveau qu'on ne trouve nulle part ailleurs à Bamako."
+    occasion: "Client regulier",
+    text: "Je commande souvent par WhatsApp. Le recapitulatif est clair, les prix sont faciles a verifier, et on me repond assez vite quand ce n'est pas l'heure de pointe."
   }
 ];
