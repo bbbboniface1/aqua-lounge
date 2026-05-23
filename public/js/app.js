@@ -359,21 +359,22 @@
     };
 
     let timer = null;
+    let userInteracted = false;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const schedule = () => {
       if (reducedMotion) return;
       window.clearInterval(timer);
-      timer = window.setInterval(() => showFrame(active + 1), 5200);
+      timer = window.setInterval(() => showFrame(active + 1), 7500);
     };
 
     slider.querySelector("[data-slider-prev]")?.addEventListener("click", () => {
       showFrame(active - 1);
-      schedule();
+      if (!userInteracted) { userInteracted = true; window.clearInterval(timer); }
     });
 
     slider.querySelector("[data-slider-next]")?.addEventListener("click", () => {
       showFrame(active + 1);
-      schedule();
+      if (!userInteracted) { userInteracted = true; window.clearInterval(timer); }
     });
 
     loadFrame(active);
@@ -436,7 +437,7 @@
   }
 
   function initTypewriter() {
-    const nodes = Array.from(document.querySelectorAll(".home-page [data-typewrite]"));
+    const nodes = Array.from(document.querySelectorAll(".home-page .eyebrow[data-typewrite]"));
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!nodes.length || reducedMotion) return;
 
