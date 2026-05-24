@@ -7,7 +7,7 @@ Site web restaurant lounge premium à Bamako — menu interactif, commande Whats
 - **Démarrer** : `node server.js` (port 5000, bind 0.0.0.0)
 - **Sync JS vers public/ et vercel-site/** : `npm run sync`
 - **Build (sync + version bump)** : `npm run build`
-- **Déploiement Vercel** : push Git → Vercel lit `vercel-site/`
+- **Déploiement Vercel** : push Git → production = dossier **`vercel-site/`** uniquement (voir `DEPLOYMENT.md`)
 
 ## Stack
 
@@ -52,7 +52,7 @@ Site web restaurant lounge premium à Bamako — menu interactif, commande Whats
 ## Gotchas
 
 - `ffmpeg` disponible pour conversion images WebP
-- Ne pas éditer directement `vercel-site/*.html` — toujours éditer les fichiers root puis copier
+- Pour la prod Vercel : éditer **`vercel-site/`** (ou copier root → `vercel-site/` avant push). Ne pas compter sur `public/` pour le déploiement.
 - `js/app.js` et `js/menu-data.js` sont la source de vérité JS — lancer `npm run sync` après modification
 - Encoding : les fichiers HTML sont UTF-8 ; `œ` = `c5 93` en bytes
 
