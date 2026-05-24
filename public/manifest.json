@@ -1,11 +1,11 @@
 {
   "name": "King Aqua Lounge",
   "short_name": "King Aqua",
-  "description": "Restaurant lounge premium au bord du fleuve à Bamako",
+  "description": "Restaurant grillades & terrasse au fleuve — Bacodjicoroni ACI, Bamako",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#201a17",
-  "theme_color": "#201a17",
+  "background_color": "#f7ead4",
+  "theme_color": "#2f2620",
   "lang": "fr",
   "icons": [
     {

@@ -48,7 +48,7 @@
           </div>
           <p class="item-desc">${item.desc}</p>
           <div class="card-actions">
-            <button class="btn primary add-to-cart" data-id="${item.id}" type="button">Commander</button>
+            <button class="btn primary add-to-cart" data-id="${item.id}" type="button">Ajouter au panier</button>
             <a class="btn ghost" href="commande.html">Panier</a>
           </div>
         </div>
@@ -438,8 +438,9 @@
 
   function initTypewriter() {
     const nodes = Array.from(document.querySelectorAll(".home-page .eyebrow[data-typewrite]"));
+    if (!nodes.length) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!nodes.length || reducedMotion) return;
+    if (reducedMotion) return;
 
     let startDelay = 140;
     nodes.forEach((node) => {
