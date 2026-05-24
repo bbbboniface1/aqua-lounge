@@ -345,9 +345,9 @@
 
     const getGridSize = () => {
       const w = window.innerWidth;
-      if (w < 560) return { cols: 6, rows: 9 };
-      if (w < 900) return { cols: 9, rows: 7 };
-      return { cols: 12, rows: 8 };
+      if (w < 560) return { cols: 5, rows: 6 };
+      if (w < 900) return { cols: 7, rows: 5 };
+      return { cols: 9, rows: 6 };
     };
 
     let active = slides.findIndex((slide) => slide.classList.contains("is-active"));
@@ -423,7 +423,7 @@
       grid.classList.add("is-animating");
 
       tiles.forEach((tile, i) => {
-        const delay = (i % 7) * 16 + Math.floor(i / 7) * 20;
+        const delay = (i % 6) * 8 + Math.floor(i / 6) * 10;
         tile.style.transitionDelay = `${delay}ms`;
         const angle = (Math.random() * 44 - 22).toFixed(1);
         const dx = (Math.random() * 70 - 35).toFixed(0);
@@ -441,7 +441,7 @@
           window.setTimeout(() => {
             tile.classList.remove("tile-in");
             tile.style.transitionDelay = "";
-          }, 640 + delay);
+          }, 320 + delay);
         }
       });
     };
@@ -460,7 +460,7 @@
       await buildMosaic(current);
       await buildMosaic(next);
 
-      const duration = reducedMotion ? 0 : 700;
+      const duration = reducedMotion ? 0 : 320;
 
       if (currentGrid && !reducedMotion) animateTiles(currentGrid, "out");
 
@@ -485,7 +485,7 @@
             });
           }
           transitioning = false;
-        }, reducedMotion ? 0 : 880);
+        }, reducedMotion ? 0 : 420);
       }, duration);
     };
 
@@ -493,22 +493,29 @@
     const schedule = () => {
       if (reducedMotion || slides.length < 2) return;
       window.clearInterval(timer);
-      timer = window.setInterval(() => goTo(active + 1), 8200);
+      timer = window.setInterval(() => {
+        goTo(active + 1);
+      }, 4500);
+    };
+
+    const bumpAutoplay = () => {
+      window.clearInterval(timer);
+      schedule();
     };
 
     slider.querySelector("[data-slider-prev]")?.addEventListener("click", () => {
       goTo(active - 1);
-      window.clearInterval(timer);
+      bumpAutoplay();
     });
     slider.querySelector("[data-slider-next]")?.addEventListener("click", () => {
       goTo(active + 1);
-      window.clearInterval(timer);
+      bumpAutoplay();
     });
 
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
         goTo(index);
-        window.clearInterval(timer);
+        bumpAutoplay();
       });
     });
 
@@ -654,7 +661,7 @@
   }
 
   window.addEventListener("load", hideLoader);
-  window.setTimeout(hideLoader, 900);
+  window.setTimeout(hideLoader, 380);
 
   document.addEventListener("DOMContentLoaded", () => {
     hideLoader();
