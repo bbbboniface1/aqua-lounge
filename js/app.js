@@ -85,7 +85,7 @@
   function updateCartCount() {
     const count = getCart().reduce((sum, entry) => sum + entry.qty, 0);
     document.querySelectorAll("[data-cart-count]").forEach((node) => {
-      node.textContent = count;
+      node.textContent = count ? `Panier · ${count}` : "Panier";
       node.setAttribute("aria-label", `${count} article(s) dans le panier`);
     });
   }
@@ -336,50 +336,201 @@
     });
   }
 
-  function initHeroSlider() {
-    const slider = document.querySelector("[data-hero-slider]");
+  function initHeroMosaic() {
+    const slider = document.querySelector("[data-hero-mosaic]");
     if (!slider) return;
-    const frames = Array.from(slider.querySelectorAll(".hero-frame"));
-    if (frames.length < 2) return;
-    let active = frames.findIndex((frame) => frame.classList.contains("is-active"));
-    if (active < 0) active = 0;
 
-    const loadFrame = (index) => {
-      const img = frames[index]?.querySelector("img[data-src]");
-      if (!img) return;
-      img.src = img.dataset.src;
-      img.removeAttribute("data-src");
+    const slides = Array.from(slider.querySelectorAll(".hero-slide"));
+    if (!slides.length) return;
+
+    const getGridSize = () => {
+      const w = window.innerWidth;
+      if (w < 560) return { cols: 6, rows: 9 };
+      if (w < 900) return { cols: 9, rows: 7 };
+      return { cols: 12, rows: 8 };
     };
 
-    const showFrame = (next) => {
-      frames[active].classList.remove("is-active");
-      active = (next + frames.length) % frames.length;
-      loadFrame(active);
-      frames[active].classList.add("is-active");
+    let active = slides.findIndex((slide) => slide.classList.contains("is-active"));
+    if (active < 0) active = 0;
+    let transitioning = false;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const dots = Array.from(slider.querySelectorAll(".hero-dot"));
+
+    const updateDots = (index) => {
+      dots.forEach((dot, i) => {
+        const on = i === index;
+        dot.classList.toggle("is-active", on);
+        dot.setAttribute("aria-selected", on ? "true" : "false");
+      });
+    };
+
+    const loadSlideImage = (slide) => {
+      const img = slide.querySelector("img");
+      if (!img) return Promise.resolve("");
+      const pending = img.dataset.src;
+      if (!pending) return Promise.resolve(img.currentSrc || img.src);
+
+      return new Promise((resolve) => {
+        const probe = new Image();
+        probe.onload = () => {
+          img.src = pending;
+          img.removeAttribute("data-src");
+          img.dataset.loaded = "1";
+          resolve(img.currentSrc || img.src);
+        };
+        probe.onerror = () => resolve(img.src);
+        probe.src = pending;
+      });
+    };
+
+    const buildMosaic = async (slide, force = false) => {
+      const grid = slide.querySelector(".hero-mosaic-grid");
+      const img = slide.querySelector("img");
+      if (!grid || !img) return;
+
+      const src = await loadSlideImage(slide);
+      if (!src || src.includes("data:image/gif")) return;
+
+      const { cols, rows } = getGridSize();
+      const signature = `${cols}x${rows}`;
+      if (!force && grid.dataset.built === signature && grid.childElementCount) return;
+
+      grid.style.setProperty("--cols", String(cols));
+      grid.style.setProperty("--rows", String(rows));
+      grid.innerHTML = "";
+      grid.dataset.built = signature;
+
+      const frag = document.createDocumentFragment();
+      for (let r = 0; r < rows; r += 1) {
+        for (let c = 0; c < cols; c += 1) {
+          const tile = document.createElement("div");
+          tile.className = "hero-tile";
+          const px = cols > 1 ? (c / (cols - 1)) * 100 : 0;
+          const py = rows > 1 ? (r / (rows - 1)) * 100 : 0;
+          tile.style.backgroundImage = `url("${src}")`;
+          tile.style.backgroundSize = `${cols * 100}% ${rows * 100}%`;
+          tile.style.backgroundPosition = `${px}% ${py}%`;
+          frag.appendChild(tile);
+        }
+      }
+      grid.appendChild(frag);
+      img.classList.add("is-behind-mosaic");
+    };
+
+    const animateTiles = (grid, mode) => {
+      if (!grid) return;
+      const tiles = grid.querySelectorAll(".hero-tile");
+      grid.classList.add("is-animating");
+
+      tiles.forEach((tile, i) => {
+        const delay = (i % 7) * 16 + Math.floor(i / 7) * 20;
+        tile.style.transitionDelay = `${delay}ms`;
+        const angle = (Math.random() * 44 - 22).toFixed(1);
+        const dx = (Math.random() * 70 - 35).toFixed(0);
+        const dy = (Math.random() * 70 - 35).toFixed(0);
+        tile.style.setProperty("--rot", `${angle}deg`);
+        tile.style.setProperty("--dx", `${dx}px`);
+        tile.style.setProperty("--dy", `${dy}px`);
+
+        if (mode === "out") {
+          tile.classList.add("tile-out");
+          tile.classList.remove("tile-in");
+        } else {
+          tile.classList.add("tile-in");
+          tile.classList.remove("tile-out");
+          window.setTimeout(() => {
+            tile.classList.remove("tile-in");
+            tile.style.transitionDelay = "";
+          }, 640 + delay);
+        }
+      });
+    };
+
+    const goTo = async (nextIndex) => {
+      if (transitioning) return;
+      const target = (nextIndex + slides.length) % slides.length;
+      if (target === active) return;
+
+      transitioning = true;
+      const current = slides[active];
+      const next = slides[target];
+      const currentGrid = current.querySelector(".hero-mosaic-grid");
+      const nextGrid = next.querySelector(".hero-mosaic-grid");
+
+      await buildMosaic(current);
+      await buildMosaic(next);
+
+      const duration = reducedMotion ? 0 : 700;
+
+      if (currentGrid && !reducedMotion) animateTiles(currentGrid, "out");
+
+      window.setTimeout(() => {
+        current.classList.remove("is-active");
+        next.classList.add("is-active");
+        updateDots(target);
+
+        if (nextGrid && !reducedMotion) {
+          nextGrid.querySelectorAll(".hero-tile").forEach((tile) => tile.classList.add("tile-in"));
+          animateTiles(nextGrid, "in");
+        }
+
+        active = target;
+
+        window.setTimeout(() => {
+          if (currentGrid) {
+            currentGrid.classList.remove("is-animating");
+            currentGrid.querySelectorAll(".hero-tile").forEach((tile) => {
+              tile.classList.remove("tile-out");
+              tile.style.transitionDelay = "";
+            });
+          }
+          transitioning = false;
+        }, reducedMotion ? 0 : 880);
+      }, duration);
     };
 
     let timer = null;
-    let userInteracted = false;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const schedule = () => {
-      if (reducedMotion) return;
+      if (reducedMotion || slides.length < 2) return;
       window.clearInterval(timer);
-      timer = window.setInterval(() => showFrame(active + 1), 7500);
+      timer = window.setInterval(() => goTo(active + 1), 8200);
     };
 
     slider.querySelector("[data-slider-prev]")?.addEventListener("click", () => {
-      showFrame(active - 1);
-      if (!userInteracted) { userInteracted = true; window.clearInterval(timer); }
+      goTo(active - 1);
+      window.clearInterval(timer);
     });
-
     slider.querySelector("[data-slider-next]")?.addEventListener("click", () => {
-      showFrame(active + 1);
-      if (!userInteracted) { userInteracted = true; window.clearInterval(timer); }
+      goTo(active + 1);
+      window.clearInterval(timer);
     });
 
-    loadFrame(active);
-    window.setTimeout(() => loadFrame((active + 1) % frames.length), 1800);
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        goTo(index);
+        window.clearInterval(timer);
+      });
+    });
+
+    buildMosaic(slides[active]).then(() => {
+      const grid = slides[active].querySelector(".hero-mosaic-grid");
+      grid?.querySelectorAll(".hero-tile").forEach((tile) => tile.classList.remove("tile-in"));
+    });
+    loadSlideImage(slides[(active + 1) % slides.length]);
+    updateDots(active);
     schedule();
+
+    let resizeTimer = null;
+    window.addEventListener("resize", () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        slides.forEach((slide) => {
+          const grid = slide.querySelector(".hero-mosaic-grid");
+          if (grid) delete grid.dataset.built;
+          buildMosaic(slide, true);
+        });
+      }, 220);
+    });
   }
 
   function initParallax() {
@@ -436,37 +587,6 @@
     window.addEventListener("resize", onResize, { passive: true });
   }
 
-  function initTypewriter() {
-    const nodes = Array.from(document.querySelectorAll(".home-page .eyebrow[data-typewrite]"));
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!nodes.length || reducedMotion) return;
-
-    let startDelay = 140;
-    nodes.forEach((node) => {
-      const text = node.dataset.typewrite || node.textContent || "";
-      node.textContent = "";
-      node.classList.add("is-typewriting");
-
-      window.setTimeout(() => {
-        let index = 0;
-        const speed = node.tagName === "H1" ? 24 : 14;
-        const write = () => {
-          node.textContent = text.slice(0, index);
-          index += 1;
-          if (index <= text.length) {
-            window.setTimeout(write, speed);
-          } else {
-            node.classList.remove("is-typewriting");
-            node.classList.add("is-written");
-          }
-        };
-        write();
-      }, startDelay);
-
-      startDelay += Math.min(620, text.length * 14 + 120);
-    });
-  }
-
   function updateOpenStatus() {
     try {
       const h = parseInt(
@@ -481,7 +601,7 @@
       document.querySelectorAll(".nav-status").forEach((el) => {
         el.setAttribute("data-open", isOpen ? "1" : "0");
         const text = el.querySelector(".status-text");
-        if (text) text.textContent = isOpen ? "Ouvert maintenant" : "Ouvre à 16h";
+        if (text) text.textContent = isOpen ? "Ouvert · 16h–3h" : "Fermé · ouvre à 16h";
       });
     } catch (e) { /* Intl non supporté — texte par défaut conservé */ }
   }
@@ -545,8 +665,7 @@
     renderOrder();
     updateCartCount();
     reveal();
-    initTypewriter();
-    initHeroSlider();
+    initHeroMosaic();
     initNavbarScroll();
     initParallax();
     updateOpenStatus();

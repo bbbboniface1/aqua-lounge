@@ -73,21 +73,18 @@
   </script>
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="css/style.css?v=20260521-sharp">
+  <link rel="stylesheet" href="css/style.css?v=20260524-human">
 </head>
 <body class="loading home-page">
-  <div class="loader"><div class="loader-mark">KA</div></div>
+  <div class="loader"><p class="loader-text">On ouvre les portes…</p></div>
   <nav class="nav">
     <div class="nav-topline">
-      <a class="nav-contact" href="mailto:diarralanlux@gmail.com">✉ diarralanlux@gmail.com</a>
+      <a class="nav-contact" href="mailto:diarralanlux@gmail.com">diarralanlux@gmail.com</a>
       <a class="brand" href="index.html" aria-label="King Aqua Lounge">
         <img src="images/optimized/logo.webp" alt="King Aqua Lounge" width="220" height="220" decoding="async">
       </a>
       <div class="nav-social">
-        <span class="nav-status">
-          <span class="status-dot"></span>
-          <span class="status-text">Ouvert 16h–3h</span>
-        </span>
+        <span class="nav-status"><span class="status-text">Ouvert 16h–3h</span></span>
         <a href="https://wa.me/22377777477" aria-label="WhatsApp King Aqua Lounge" class="nav-whatsapp">WhatsApp</a>
         <a href="contact.html" aria-label="Contact King Aqua Lounge">Contact</a>
       </div>
@@ -100,47 +97,51 @@
       <a href="galerie.html">Galerie</a>
       <a href="contact.html">Contact</a>
       <div class="nav-status-drawer">
-        <span class="nav-status">
-          <span class="status-dot"></span>
-          <span class="status-text">Ouvert 16h–3h</span>
-        </span>
+        <span class="nav-status"><span class="status-text">Ouvert 16h–3h</span></span>
       </div>
     </div>
   </nav>
 
-  <header class="hero hero-slider" data-hero-slider>
-    <div class="hero-frame is-active">
-      <img src="images/optimized/bar-americain.webp" alt="Bar américain lumineux King Aqua Lounge" width="1280" height="960" sizes="100vw" fetchpriority="high" decoding="async">
-    </div>
-    <div class="hero-frame">
-      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/bellevue-fleuve.webp" alt="Vue splendide sur le fleuve depuis King Aqua Lounge" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
-    </div>
-    <div class="hero-frame">
-      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/deventure-fleuve.webp" alt="Devanture du King Aqua Lounge au bord du fleuve" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
-    </div>
-    <div class="hero-frame">
-      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/photo-exterieur.webp" alt="King Aqua Lounge posé au bord du fleuve" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
-    </div>
-    <button class="hero-control hero-control-prev" type="button" data-slider-prev aria-label="Image précédente">&lsaquo;</button>
-    <button class="hero-control hero-control-next" type="button" data-slider-next aria-label="Image suivante">&rsaquo;</button>
-    <div class="hero-dots" aria-hidden="true">
-      <span class="hero-dot is-active"></span>
-      <span class="hero-dot"></span>
-      <span class="hero-dot"></span>
-      <span class="hero-dot"></span>
-    </div>
-    <div class="hero-content cinematic reveal">
-      <p class="eyebrow" data-typewrite="Restaurant · Grillades · Cocktails">Restaurant · Grillades · Cocktails</p>
-      <h1>KING AQUA LOUNGE</h1>
-      <p>Restaurant à Bacodjicoroni ACI, Bamako, pour manger au calme, boire un verre et profiter du fleuve Niger.</p>
-      <div class="actions">
-        <a class="btn primary" href="menu.html">Voir le menu</a>
-        <a class="btn" href="commande.html">Commander maintenant</a>
+  <header class="hero hero-mosaic" data-hero-mosaic>
+    <div class="hero-slides">
+      <div class="hero-slide is-active">
+        <div class="hero-mosaic-grid" aria-hidden="true"></div>
+        <img src="images/optimized/bar-americain.webp" alt="Bar américain lumineux King Aqua Lounge" width="1280" height="960" sizes="100vw" fetchpriority="high" decoding="async">
       </div>
+      <div class="hero-slide">
+        <div class="hero-mosaic-grid" aria-hidden="true"></div>
+        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/bellevue-fleuve.webp" alt="Vue sur le fleuve depuis King Aqua Lounge" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <div class="hero-mosaic-grid" aria-hidden="true"></div>
+        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/deventure-fleuve.webp" alt="Devanture du King Aqua Lounge au bord du fleuve" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <div class="hero-mosaic-grid" aria-hidden="true"></div>
+        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="images/optimized/photo-exterieur.webp" alt="King Aqua Lounge posé au bord du fleuve" width="1280" height="960" sizes="100vw" loading="lazy" decoding="async">
+      </div>
+    </div>
+    <button class="hero-control hero-control-prev" type="button" data-slider-prev aria-label="Photo précédente">Préc.</button>
+    <button class="hero-control hero-control-next" type="button" data-slider-next aria-label="Photo suivante">Suiv.</button>
+    <div class="hero-dots" role="tablist" aria-label="Photos du restaurant">
+      <button type="button" class="hero-dot is-active" aria-label="Photo 1" aria-selected="true"></button>
+      <button type="button" class="hero-dot" aria-label="Photo 2"></button>
+      <button type="button" class="hero-dot" aria-label="Photo 3"></button>
+      <button type="button" class="hero-dot" aria-label="Photo 4"></button>
+    </div>
+    <div class="hero-content reveal">
+      <p class="eyebrow hand-line">Grillades · poisson · terrasse fleuve</p>
+      <h1><span class="title-main">King Aqua Lounge</span></h1>
+      <p class="hero-lead">À Bacodjicoroni ACI, on sert chaud, on discute fort doucement, et la vue sur le Niger fait le reste. Tous les jours de 16h à 3h.</p>
+      <div class="actions">
+        <a class="btn primary" href="menu.html">Voir la carte</a>
+        <a class="btn" href="commande.html">Commander sur WhatsApp</a>
+      </div>
+      <p class="hero-note hand-line">Sur place · groupes · anniversaires — appelez avant pour réserver une table fleuve</p>
       <div class="mobile-hero-tags" aria-label="Repères King Aqua Lounge">
-        <a href="menu.html"><span>Grillades</span></a>
-        <a href="commande.html"><span>Cocktails</span></a>
-        <a href="galerie.html"><span>Vue fleuve</span></a>
+        <a href="menu.html">Grillades</a>
+        <a href="commande.html">Cocktails</a>
+        <a href="galerie.html">Vue fleuve</a>
       </div>
     </div>
   </header>
@@ -149,10 +150,10 @@
   <main>
     <section class="section story">
       <div class="reveal">
-        <p class="eyebrow">À Bacodjicoroni ACI</p>
-        <h2>Une table simple, un bon feu de braise, le fleuve pas loin.</h2>
-        <p>King Aqua Lounge accueille les habitués de Bacodjicoroni ACI, les familles et les groupes qui veulent bien manger sans compliquer la soirée.</p>
-        <p>On vient pour les grillades, les poissons, les fruits de mer, les cocktails et l’air plus frais en bord de fleuve.</p>
+        <p class="eyebrow hand-line">Chez nous à Bacodjicoroni</p>
+        <h2>Pas de discours compliqué : de bonnes grillades, le fleuve en face, et une équipe qui connaît les habitués.</h2>
+        <p>Depuis des années on reçoit familles, collègues après le boulot et groupes qui veulent une table tranquille sans cérémonie.</p>
+        <p>Poisson du jour, brochettes, gambas, cocktails maison — on cuisine pour que ça parte chaud et que vous reveniez.</p>
       </div>
       <div class="story-media reveal" data-parallax>
         <img src="images/optimized/bar-americain.webp" alt="Ambiance intérieure lounge du King Aqua Lounge" loading="lazy" decoding="async">
@@ -189,19 +190,16 @@
       </div>
       <div class="why-grid">
         <article class="why-item reveal">
-          <span>01</span>
-          <h3>Qualité</h3>
-          <p>Des portions généreuses, des assaisonnements francs et des plats servis chauds.</p>
+          <h3>Assiettes copieuses</h3>
+          <p>On ne lésine pas sur la portion : assaisonnement franc, viande et poisson servis bien chauds.</p>
         </article>
         <article class="why-item reveal">
-          <span>02</span>
-          <h3>Ambiance</h3>
-          <p>De la musique, de la lumière, des tables qui discutent et la vue sur le fleuve.</p>
+          <h3>Ambiance vivante</h3>
+          <p>Musique, lumière douce, tables qui parlent fort — et la brise du Niger en terrasse.</p>
         </article>
         <article class="why-item reveal">
-          <span>03</span>
-          <h3>Service</h3>
-          <p>Vous appelez, vous écrivez sur WhatsApp, ou vous passez directement. On garde ça simple.</p>
+          <h3>Contact direct</h3>
+          <p>Un coup de fil, un message WhatsApp, ou vous passez : pas de formulaire bizarre, on répond.</p>
         </article>
       </div>
     </section>
@@ -276,9 +274,9 @@
   </div>
   <a class="call-float" href="tel:+22377777477" aria-label="Appeler King Aqua Lounge">Appeler</a>
   <a class="cart-pill" href="commande.html" data-cart-count>0</a>
-  <a class="whatsapp-float" href="https://wa.me/22377777477" aria-label="Contacter King Aqua Lounge sur WhatsApp">WA</a>
+  <a class="whatsapp-float" href="https://wa.me/22377777477" aria-label="Contacter King Aqua Lounge sur WhatsApp">WhatsApp</a>
   <script src="js/menu-data.js?v=20260511-v2"></script>
   <script src="js/testimonials-data.js?v=20260511-v2"></script>
-  <script src="js/app.js?v=20260511-v2"></script>
+  <script src="js/app.js?v=20260524-human"></script>
 </body>
 </html>
